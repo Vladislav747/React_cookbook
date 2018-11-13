@@ -8,6 +8,17 @@ class App extends Component {
   toggleMenu = () => {
     this.setState(({ isMenuOpen }) => ({ isMenuOpen: !isMenuOpen }));
   };
+
+  //Чтобы сработка была именно на элементе aside
+  onAsideClick = (event) => {
+    if(!event.target.contains(this.aside)){
+      this.toggleMenu();
+    }
+  }
+  // handleAsideRef = (node) => {
+  //   this.aside = node;
+  //   document.addEventListener('click', this.onAsideClick);
+  // }
   render() {
     return (
       <div className="App">
