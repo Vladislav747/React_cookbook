@@ -17,7 +17,7 @@ class App extends Component {
   }
   // handleAsideRef = (node) => {
   //   this.aside = node;
-  //  document.addEventListener('click', this.onAsideClick);
+  // document.addEventListener('click', this.onAsideClick);
   // }
   render() {
     return (
