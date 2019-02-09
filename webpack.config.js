@@ -1,12 +1,5 @@
-var webpack = require('webpack');
-
 module.exports = {
-  entry: './src/index.js',
-  output: {
-    path: __dirname + '/public',
-    filename: 'bundle.js'
-  },
-  module: {
+   module: {
     rules: [
       {
         test: /.jsx?$/,
@@ -15,7 +8,11 @@ module.exports = {
       },
       { 
         test: /\.css$/,
-        use: 'css-loader'
+        use: ['style-loader', 'css-loader', {
+          loader: 'postcss-loader',
+          options: {
+            plugins: () => [require('autoprefixer')]
+          }}]
       },
     ]
   }

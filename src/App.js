@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Recipe from './Recipe/Recipe';
 
 class App extends Component {
   state = {
@@ -19,7 +20,11 @@ class App extends Component {
   //   this.aside = node;
   // document.addEventListener('click', this.onAsideClick);
   // }
+
+  
   render() {
+    const recipesOfRecipe = ["Chicken Soup", "Tomato Soup", "Chicken with Potato"];
+    const ingredientsOfRecipe = [4,5,6,8];
     return (
       <div className="App">
       <header>
@@ -28,6 +33,7 @@ class App extends Component {
       </header>
       <aside ref={this.handleAsideRef} className={this.state.isMenuOpen ? 'isOpen' : ''}></aside>
       <main>Main</main>
+      <Recipe title={recipesOfRecipe[0]} ingredients={ingredientsOfRecipe[0]} />
       </div>
     );
   }
