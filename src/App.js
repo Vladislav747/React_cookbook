@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios';
 import Recipe from './Recipe/Recipe';
 import AddRecipeForm from './AddRecipeForm/AddRecipeForm';
 import { getRecipes } from './AddRecipeForm/api';
