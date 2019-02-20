@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
 import Recipe from './Recipe/Recipe';
 import AddRecipeForm from './AddRecipeForm/AddRecipeForm';
+import { getRecipes } from './AddRecipeForm/api';
+
 
 class App extends Component {
 
@@ -12,10 +15,24 @@ class App extends Component {
     // нужно привязывать область видимости явно при React.createClass не нужно
     this.toggleMenu = this.toggleMenu.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
+    this.state = {
+      isMenuOpen: false,
+      isFormOpen: false,
+      dataIngredient: []
+    };
   }
-  state = {
-    isMenuOpen: false,
-    isFormOpen: false
+
+  componentDidMount() {
+
+    getRecipes()
+      .then((result) => {
+        this.setState({
+          dataIngredient: result
+        })
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   };
 
   //Открыть скрыть меню
@@ -34,15 +51,17 @@ class App extends Component {
       this.toggleMenu();
     }
   }
-  // handleAsideRef = (node) => {
-  //   this.aside = node;
-  // document.addEventListener('click', this.onAsideClick);
-  // }
 
+  ShowRecipes = (data) => {
+
+    return data.map((item, i) =>
+      <Recipe id={i} title={item.titleRecipe} ingredients={item.ingredients} />
+    )
+
+  }
 
   render() {
-    const recipesOfRecipe = ["Chicken Soup", "Tomato Soup", "Chicken with Potato"];
-    const ingredientsOfRecipe = ["chicken, water, potato", 5, 6, 8];
+
     return (
       <div className="App">
         <header>
@@ -51,7 +70,11 @@ class App extends Component {
         </header>
         <aside ref={this.handleAsideRef} className={this.state.isMenuOpen ? 'isOpen' : ''}></aside>
         <main>Книга Рецептов</main>
-        <Recipe title={recipesOfRecipe[0]} ingredients={ingredientsOfRecipe[0]} />
+
+        <div className="recipes">
+          {this.ShowRecipes(this.state.dataIngredient)}
+        </div>
+
         <button className="fas fa-hand-point-right" onClick={this.toggleForm}>Открыть Форму</button>
         <div className={this.state.isFormOpen ? 'AddRecipeFormIsOpen' : 'AddRecipeForm'}>
           <AddRecipeForm />
