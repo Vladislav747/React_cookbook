@@ -2,6 +2,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  
 }
 
 aside {
@@ -44,6 +45,19 @@ main {
   flex: 1;
 }
 
+.AddRecipeForm{
+  position: relative;
+  left: -210px;
+  transition: all 0.5s linear;
+}
+
+.AddRecipeFormIsOpen{
+  position: relative;
+  left: 0;
+  border: 1px solid #000000;
+  transition: all 0.5s linear;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -52,3 +66,5 @@ main {
     transform: rotate(360deg);
   }
 }
+
+

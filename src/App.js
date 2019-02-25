@@ -1,24 +1,50 @@
 import React, { Component } from 'react';
 import './App.css';
-import Sidebar from './Sidebar';
-import MenuList from './Menu/MenuList';
-import MenuItem from './Menu/MenuItem';
+import Recipe from './components/Recipe';
+import AddRecipeForm from './components/AddRecipeForm';
+import { getRecipes } from './api/api';
+
 
 class App extends Component {
-  state = {
-    isMenuOpen: false,
+
+  constructor(props) {
+    super(props)
+
+    this.toggleMenu = this.toggleMenu.bind(this);
+    this.toggleForm = this.toggleForm.bind(this);
+    this.state = {
+      isMenuOpen: false,
+      isFormOpen: false,
+      dataIngredient: []
+    };
+  }
+
+  componentDidMount() {
+
+    getRecipes()
+      .then((result) => {
+        this.setState({
+          dataIngredient: result
+        })
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   };
+
+  //Открыть скрыть меню
   toggleMenu = () => {
     this.setState(({ isMenuOpen }) => ({ isMenuOpen: !isMenuOpen }));
   };
 
+  //Открыть скрыть форму
+  toggleForm = () => {
+    this.setState(({ isFormOpen }) => ({ isFormOpen: !isFormOpen }));
+  };
+
   //Чтобы сработка была именно на элементе aside
   onAsideClick = (event) => {
-    if (
-      !event.target.contains(this.aside) &&
-      !event.target.contains(this.button) &&
-      this.state.isMenuOpen
-    ) {
+    if (!event.target.contains(this.aside)) {
       this.toggleMenu();
     }
   };
@@ -33,26 +59,35 @@ class App extends Component {
     }
   }
 
-  handleButtonRef = node => {
-    console.log(node);
-    this.button = node;
-  };
+  ShowRecipes = (data) => {
+
+    return data.map((item, i) =>
+      <Recipe id={i} title={item.titleRecipe} ingredients={item.ingredients} />
+    )
+
+  }
+
   render() {
+
     return (
       <div className="App">
-      <header>
-        <button 
-        ref={this.handleButtonRef}
-        className="fa fa-bars menu-btn" 
-        onClick={this.toggleMenu}/>      
-      </header>
-       <Sidebar onRef={this.handleAsideRef} isOpen={this.state.isMenuOpen}>
-       <MenuList>
-            <MenuItem title="Dashboard" />
-            <MenuItem title="Admin" />
-          </MenuList>
-       </Sidebar>
-      <main>Main</main>
+      
+        <header>
+          <button className="fa fa-bars menu-btn"
+            onClick={this.toggleMenu} />
+        </header>
+
+        <aside ref={this.handleAsideRef} className={this.state.isMenuOpen ? 'isOpen' : ''}></aside>
+        <main>Книга Рецептов</main>
+
+        <div className="recipes">
+          {this.ShowRecipes(this.state.dataIngredient)}
+        </div>
+
+        <button className="fas fa-hand-point-right" onClick={this.toggleForm}>Открыть Форму</button>
+        <div className={this.state.isFormOpen ? 'AddRecipeFormIsOpen' : 'AddRecipeForm'}>
+          <AddRecipeForm />
+        </div>
       </div>
     );
   }

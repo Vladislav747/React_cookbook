@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   module: {
+=======
+module.exports = {
+   module: {
+>>>>>>> development
     rules: [
       {
         test: /\.(js|jsx)$/,
@@ -12,7 +17,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: 'css-loader'
+        use: ['style-loader', 'css-loader', {
+          loader: 'postcss-loader',
+          options: {
+            plugins: () => [require('autoprefixer')]
+          }}]
       },
       {
         test: /\.html$/,
