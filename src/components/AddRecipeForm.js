@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 //import '../SignupForm.css';
-import { addRecipe, validateEmail } from './api'
+import { addRecipe, validateEmail } from '../api/api';
 
 
 const handleErrors = (errors, field) =>
 
     errors
-
-        // console.log(typeof(errors));
-        // console.log(typeof(field));
         .filter(e => e.field === field)
         .map(e => <p key={e.error} className="error">{e.error} </p>);
 

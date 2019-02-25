@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Recipe from './Recipe/Recipe';
-import AddRecipeForm from './AddRecipeForm/AddRecipeForm';
-import { getRecipes } from './AddRecipeForm/api';
+import Recipe from './components/Recipe';
+import AddRecipeForm from './components/AddRecipeForm';
+import { getRecipes } from './api/api';
 
 
 class App extends Component {
