@@ -21,12 +21,6 @@ aside.isOpen {
   left: 0;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
 header {
   display: flex;
   align-items: center;

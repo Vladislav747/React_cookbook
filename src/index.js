@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './scss/index.css';
-import * as serviceWorker from './serviceWorker';
 import './scss/App.css';
 
 import Recipe from './components/Recipe';
 import AddRecipeForm from './components/AddRecipeForm';
 import { getRecipes } from './api/api';
+import Recipes from './components/Recipes';
 
 class App extends Component {
 
@@ -26,7 +26,6 @@ class App extends Component {
   
     componentDidMount() {
   
-      
       getRecipes()
         .then((result) => {
           this.setState({
@@ -34,7 +33,7 @@ class App extends Component {
           })
         })
         .catch((err) => {
-          console.log(err);
+         throw new Error(err);
         })
     };
   
@@ -74,8 +73,8 @@ class App extends Component {
           <aside ref={this.handleAsideRef} className={this.state.isMenuOpen ? 'isOpen' : ''}></aside>
           <main>Книга Рецептов</main>
   
-          <div className="recipes">
-            {this.ShowRecipes(this.state.dataIngredient)}
+          <div className="container">
+            <Recipes dataIngredient={this.state.dataIngredient}/>
           </div>
   
           <button className="fas fa-hand-point-right" onClick={this.toggleForm}>Открыть Форму</button>
@@ -89,7 +88,3 @@ class App extends Component {
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();

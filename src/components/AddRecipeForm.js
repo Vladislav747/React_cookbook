@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
-//import '../SignupForm.css';
-import { addRecipe, validateEmail } from '../api/api';
+import { addRecipe} from '../api/api';
 
 
-const handleErrors = (errors, field) =>
 
-    errors
-        .filter(e => e.field === field)
-        .map(e => <p key={e.error} className="error">{e.error} </p>);
-
-
-class AddRecipeForm extends Component {
-
+export default class AddRecipeForm extends Component {
 
     //Изначальный state
     constructor(props) {
@@ -22,17 +14,23 @@ class AddRecipeForm extends Component {
         };
     }
 
-    //Изначальный state другим способом
-    // state = {
-    //     errors: [],
-    // };
+    /**
+     * Вывод ошибок
+     * 
+     * @param  {array} errors
+     * @param  {string} field
+     */
+    handleErrors = (errors, field) => {
 
-
+    errors
+        .filter(e => e.field === field)
+        .map(e => <p key={e.error} className="error">{e.error} </p>);
+    }
 
     onSubmit = event => {
         event.preventDefault();
 
-            const data = {
+        const data = {
             titleRecipe: event.target.titleRecipe.value,
             ingredients: event.target.ingredients.value,
         }
@@ -56,12 +54,8 @@ class AddRecipeForm extends Component {
                 console.log("Сообщение отправлено");
             },
             e => {
-                console.log(e.data);
-                console.log("Сообщение не отправлено");
-                //e.response.data.errors = ((e.response.data.errors).length() > 0) ? e.response.data.errors: [];
-                // this.setState({ errors: e.response.data.errors, isSubmiting: false });
-            }
-        );
+                throw new Error("ошибка Отправки данных в AddRecipeForm", e);
+            });
 
     }
 
@@ -74,8 +68,7 @@ class AddRecipeForm extends Component {
                         Title of Recipe:
                     <div>
                             <input type="text" name="titleRecipe" />
-                            {/* Ошибоньки */}
-                            {handleErrors(this.state.errors, 'titleRecipe')}
+                            {this.handleErrors(this.state.errors, 'titleRecipe')}
 
                         </div>
                     </label>
@@ -84,7 +77,7 @@ class AddRecipeForm extends Component {
                     <div>
                             <input type="text" name="ingredients" />
 
-                            {handleErrors(this.state.errors, 'ingredients')}
+                            {this.handleErrors(this.state.errors, 'ingredients')}
 
                         </div>
                     </label>
@@ -94,5 +87,3 @@ class AddRecipeForm extends Component {
         )
     };
 }
-
-export default AddRecipeForm;

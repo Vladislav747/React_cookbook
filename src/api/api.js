@@ -1,11 +1,7 @@
 //Подтягивание даты с github - используя библиотеку axios
-import axios from 'axios';
 import { configs } from '../dbConfig/config.js';
 import $ from 'jquery';
 import { v4 as uuid } from 'uuid';
-const API_HOST = configs.API_HOST;
-const myAPIKey = 'DU4bGV0HZIvepgmthJHS4aZCOGSiK3zp';
-const uri = 'https://api.mlab.com/api/1/databases/recipe_react_menu_with_wp/collections/recipes?apiKey=' + myAPIKey;
 
 /**
  * Добавить рецепт в базу
@@ -15,7 +11,7 @@ const uri = 'https://api.mlab.com/api/1/databases/recipe_react_menu_with_wp/coll
 export function addRecipe(data) {
 
   $.ajax({
-    url: 'https://api.mlab.com/api/1/databases/recipe_react_menu_with_wp/collections/recipes?apiKey=' + myAPIKey,
+    url: configs.URI,
     data: JSON.stringify({
       "idRecipe": uuid(),
       "titleRecipe": data.titleRecipe,
@@ -30,12 +26,13 @@ export function addRecipe(data) {
   })
 }
 
+/**
+ * Вывести все рецепты
+ * 
+ */
 export const getRecipes = function () {
 
-  return fetch(uri).then((r) => { return r.json() })
-}
-
-
-export function validateEmail(email) {
-  return axios.post(`${API_HOST}/validate/email`, { email }).then(r => r.data);
+  return fetch(configs.URI)
+  .then((r) => { return r.json() })
+  .catch();
 }
