@@ -1,90 +1,72 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './scss/index.css';
+//css
+import './scss/index.scss';
 import './scss/App.css';
-
-import Recipe from './components/Recipe';
+//components
 import AddRecipeForm from './components/AddRecipeForm';
-import { getRecipes } from './api/api';
 import Recipes from './components/Recipes';
+
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import { getRecipes } from './services/mLab';
 
 class App extends Component {
 
     constructor(props) {
-      super(props)
-  
-      /*При использовании схемы типа class App extends Component  
-      нужно привязывать область видимости явно при React.createClass не нужно*/
-      this.toggleMenu = this.toggleMenu.bind(this);
-      this.toggleForm = this.toggleForm.bind(this);
-      this.state = {
-        isMenuOpen: false,
-        isFormOpen: false,
-        dataIngredient: []
-      };
+        super(props)
+
+        /*При использовании схемы типа class App extends Component  
+        нужно привязывать область видимости явно при React.createClass не нужно*/
+        this.toggleForm = this.toggleForm.bind(this);
+        this.state = {
+            isMenuOpen: false,
+            isFormOpen: false,
+            dataIngredient: []
+        };
     }
-  
+
     componentDidMount() {
-  
-      getRecipes()
-        .then((result) => {
-          this.setState({
-            dataIngredient: result
-          })
-        })
-        .catch((err) => {
-         throw new Error(err);
-        })
+
+        getRecipes()
+            .then((result) => {
+                this.setState({
+                    dataIngredient: result
+                })
+            })
+            .catch((err) => {
+                throw new Error(err);
+            })
     };
-  
-    //Открыть скрыть меню
-    toggleMenu = () => {
-      this.setState(({ isMenuOpen }) => ({ isMenuOpen: !isMenuOpen }));
-    };
-  
+
+   
+
     //Открыть скрыть форму
     toggleForm = () => {
-      this.setState(({ isFormOpen }) => ({ isFormOpen: !isFormOpen }));
+        this.setState(({ isFormOpen }) => ({ isFormOpen: !isFormOpen }));
     };
-  
-    //Чтобы сработка была именно на элементе aside
-    onAsideClick = (event) => {
-      if (!event.target.contains(this.aside)) {
-        this.toggleMenu();
-      }
-    }
-  
-    ShowRecipes = (data) => {
-  
-      return data.map((item, i) =>
-        <Recipe id={i} title={item.titleRecipe} ingredients={item.ingredients} />
-      )
-  
-    }
-  
+
     render() {
-  
-      return (
-        <div className="App">
-          <header>
-            <button className="fa fa-bars menu-btn"
-              onClick={this.toggleMenu} />
-          </header>
-          <aside ref={this.handleAsideRef} className={this.state.isMenuOpen ? 'isOpen' : ''}></aside>
-          <main>Книга Рецептов</main>
-  
-          <div className="container">
-            <Recipes dataIngredient={this.state.dataIngredient}/>
-          </div>
-  
-          <button className="fas fa-hand-point-right" onClick={this.toggleForm}>Открыть Форму</button>
-          <div className={this.state.isFormOpen ? 'AddRecipeFormIsOpen' : 'AddRecipeForm'}>
-            <AddRecipeForm />
-          </div>
-        </div>
-      );
+
+        return (
+            <div className="App">
+                <header>
+                    <h1>Книга Рецептов</h1>
+                </header>
+
+                <div className="container">
+                    <Recipes dataIngredient={this.state.dataIngredient} />
+
+                    <button className="fas fa-hand-point-right" onClick={this.toggleForm}>Открыть Форму</button>
+                <div className={this.state.isFormOpen ? 'AddRecipeFormIsOpen' : 'AddRecipeForm'}>
+                    <AddRecipeForm />
+                </div>
+                </div>
+
+                
+            </div>
+        );
     }
-  }
+}
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));

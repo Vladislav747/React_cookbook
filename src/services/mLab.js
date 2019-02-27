@@ -27,12 +27,14 @@ export function addRecipe(data) {
 }
 
 /**
- * Вывести все рецепты
+ * Вывести все рецепты в формате json
  * 
  */
 export const getRecipes = function () {
 
   return fetch(configs.URI)
   .then((r) => { return r.json() })
-  .catch();
+  .catch((err) => {
+    throw new Error(err);
+   })
 }

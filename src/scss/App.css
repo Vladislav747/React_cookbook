@@ -1,8 +1,15 @@
 .App {
   height: 100%;
-  display: flex;
-  flex-direction: column;
+
   
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  flex: 0 0 50px;
+  background-color: #297fb8;
 }
 
 aside {
@@ -21,13 +28,7 @@ aside.isOpen {
   left: 0;
 }
 
-header {
-  display: flex;
-  align-items: center;
-  padding: 0 15px;
-  flex: 0 0 50px;
-  background-color: #297fb8;
-}
+
 
 .menu-btn {
   background: none;

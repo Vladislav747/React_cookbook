@@ -1,5 +1,9 @@
-/* .recipe {
-    height: 50px;
-    width: 50px;
-    margin: 50px;
-} */
+.recipe {
+    height: 200px;
+    width: 200px;
+    margin: 40px;
+    background: #f46b42;
+    border: 1px solid black; /* Параметры рамки */
+    padding: 15px; /* Поля вокруг текста */
+    border-radius: 20px;
+}
