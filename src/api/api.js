@@ -7,10 +7,13 @@ const API_HOST = configs.API_HOST;
 const myAPIKey = 'DU4bGV0HZIvepgmthJHS4aZCOGSiK3zp';
 const uri = 'https://api.mlab.com/api/1/databases/recipe_react_menu_with_wp/collections/recipes?apiKey=' + myAPIKey;
 
-
+/**
+ * Добавить рецепт в базу
+ * 
+ * @param  {object} data
+ */
 export function addRecipe(data) {
 
-  //Кладем рецепт в книгу
   $.ajax({
     url: 'https://api.mlab.com/api/1/databases/recipe_react_menu_with_wp/collections/recipes?apiKey=' + myAPIKey,
     data: JSON.stringify({
@@ -29,7 +32,7 @@ export function addRecipe(data) {
 
 export const getRecipes = function () {
 
-  return fetch(uri).then((r)=> {return r.json()})
+  return fetch(uri).then((r) => { return r.json() })
 }
 
 
