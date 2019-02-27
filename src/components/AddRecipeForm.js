@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { addRecipe} from '../api/api';
+import { addRecipe} from '../services/mLab';
 
 
 

@@ -19,27 +19,10 @@ class App extends Component {
         /*При использовании схемы типа class App extends Component  
         нужно привязывать область видимости явно при React.createClass не нужно*/
         this.toggleForm = this.toggleForm.bind(this);
-        this.state = {
-            isMenuOpen: false,
-            isFormOpen: false,
-            dataIngredient: []
-        };
+        
     }
 
-    componentDidMount() {
-
-        getRecipes()
-            .then((result) => {
-                this.setState({
-                    dataIngredient: result
-                })
-            })
-            .catch((err) => {
-                throw new Error(err);
-            })
-    };
-
-   
+    
 
     //Открыть скрыть форму
     toggleForm = () => {
@@ -47,7 +30,7 @@ class App extends Component {
     };
 
     render() {
-
+        
         return (
             <div className="App">
                 <header>
@@ -55,12 +38,12 @@ class App extends Component {
                 </header>
 
                 <div className="container">
-                    <Recipes dataIngredient={this.state.dataIngredient} />
+                    <Recipes store={store} />
 
                     <button className="fas fa-hand-point-right" onClick={this.toggleForm}>Открыть Форму</button>
-                <div className={this.state.isFormOpen ? 'AddRecipeFormIsOpen' : 'AddRecipeForm'}>
+                {/* <div className={this.state.isFormOpen ? 'AddRecipeFormIsOpen' : 'AddRecipeForm'}>
                     <AddRecipeForm />
-                </div>
+                </div> */}
                 </div>
 
                 
