@@ -1,17 +1,15 @@
-import { CHANGE_FORM_OPEN, ADD_DATA_INGREDIENT, GET_DATA_INGREDIENT, FETCH_DATA, FETCH_ERROR } from './action-types';
+import { CHANGE_FORM_OPEN, GET_DATA_INGREDIENT, FETCH_DATA, FETCH_ERROR } from './action-types';
 import { getRecipes } from '../services/mLab';
 import { configs } from '../dbConfig/config';
+import axios from 'axios';
+
 
 export function changeIsFormOpen(payload) {
 
-    return { type: CHANGE_FORM_OPEN, payload }
-}
-export function addDataIngredient(payload) {
-
-    return { type: ADD_DATA_INGREDIENT, payload }
+    return { type: CHANGE_FORM_OPEN, payload:!payload }
 }
 
-export function getDataIngredient(json) {
+const getDataIngredient = (json) => {
     return {
         type: GET_DATA_INGREDIENT,
         payload: json
@@ -19,27 +17,26 @@ export function getDataIngredient(json) {
 }
 
 
-export function fetchData(){
+const fetchData = () => {
     return{
         type:FETCH_DATA
     }
 }
 
-export function getDataError(err){
-    return {
-        type: FETCH_ERROR
+const getDataError = () => {
+    return{
+        type:FETCH_ERROR
     }
 }
 
-export function fetchDataIngredient() {
+export const fetchDataIngredient = () => dispatch => {
        
-    return dispatch => {
-        dispatch(fetchData())
-        return fetch(configs.URI)
-          .then(response => response.json())
-          .then(json => dispatch(getDataIngredient(json)))
-          .catch(err=> dispatch(getDataError(err)))
+        dispatch(fetchData());
+
+        return axios.get(configs.URI)
+          .then((response) =>{ 
+           const responseData = response.data;
+            dispatch(getDataIngredient(responseData))
+          })
+            .catch(err=> dispatch(getDataError(err)))
     }
-}
-
-

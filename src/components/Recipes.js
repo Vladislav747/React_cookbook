@@ -13,27 +13,27 @@ class Recipes extends Component {
     }
 
     componentDidMount() {
-        // const { dispatch, dataIngredient} = this.props
-        // dispatch(fetchDataIngredient())
+        const { dispatch, dataIngredient} = this.props
+        dispatch(fetchDataIngredient())
       }
 
 
     render() {
 
-        const recipesData =
-            this.props.dataIngredient
-                .map((item, i) => {
-                    return (
-                        <Recipe id={i} title={item.titleRecipe} ingredients={item.ingredients} />
-                    );
-                });
+   
+            
 
         // Empty and Loading States
         let view;
-        if (recipesData.length <= 0) {
+        if (this.props.dataIngredient.length <= 0) {
             view = <p>Loading</p>;
         } else {
-            view = recipesData;
+            view = this.props.dataIngredient
+            .map((item, i) => {
+                return (
+                    <Recipe id={i} title={item.titleRecipe} ingredients={item.ingredients} />
+                );
+            });;
         };
 
         return (<div className="recipes">{view}</div>);
@@ -49,31 +49,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(Recipes);
-
-
-
-
-
-
-
-
-
-
-
-
-//Recipes как функция а не как класс
-// const Recipes = () => {
-//     store.dispatch(getDataIngredient());
-//     // const { dataIngredient } = store.getState();
-//     store.subscribe(() => console.log("Обновилось",store.getState()));
-
-//     return (
-//         <div className="recipes">
-//             {this.props.dataIngredient
-//                 .map((item, i) =>
-//                     <Recipe id={i} title={item.titleRecipe} ingredients={item.ingredients} />
-//                 )
-//             }
-//         </div>
-//     )
-// }
