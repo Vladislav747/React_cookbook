@@ -38,7 +38,7 @@ class App extends Component {
                 <div className="container">
                     <Recipes />
 
-                    <button className="fas fa-hand-point-right" onClick={this.toggleForm}>Открыть Форму</button>
+                    <button className="btnRecipes" onClick={this.toggleForm}>Открыть Форму</button>
                     <div className={this.props.isFormOpen ? 'AddRecipeFormIsOpen' : 'AddRecipeForm'}>
                         <AddRecipeForm />
                     </div>

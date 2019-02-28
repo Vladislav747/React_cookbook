@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { PropTypes } from 'prop-types';
 import { fetchDataIngredient,addDataIngredient } from '../redux/actions';
 
+import '../scss/AddRecipeForm.scss';
+
 class AddRecipeForm extends Component {
 
     //Изначальный state
@@ -28,9 +30,9 @@ class AddRecipeForm extends Component {
     
     render() {
         return (
-            <div >
+            <div className="AddRecipeFormContainer" >
                 <p>Форма добавления рецепта</p>
-                <form className="form" onSubmit={this.onSubmit}>
+                <form className="formIngredient" onSubmit={this.onSubmit}>
                     <label>
                         Title of Recipe:
                     <div>
@@ -45,7 +47,7 @@ class AddRecipeForm extends Component {
 
                         </div>
                     </label>
-                    <button type="submit" disabled={this.props.isSubmiting}>Отправить</button>
+                    <button className="btnSubmit" type="submit" disabled={this.props.isSubmiting}>Отправить</button>
                 </form>
                 {this.props.isSuccess && <Success/>}
             </div>
