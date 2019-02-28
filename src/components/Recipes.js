@@ -1,11 +1,10 @@
-
 import React, { Component } from 'react';
 import Recipe from './Recipe';
 import { connect } from "react-redux";
-
+import { PropTypes } from 'prop-types';
 import '../scss/Recipes.css';
 
-import { getDataIngredient, fetchDataIngredient } from '../redux/actions';
+import { fetchDataIngredient } from '../redux/actions';
 
 class Recipes extends Component {
     constructor(props) {
@@ -13,27 +12,23 @@ class Recipes extends Component {
     }
 
     componentDidMount() {
-        const { dispatch, dataIngredient} = this.props
+        const { dispatch } = this.props
         dispatch(fetchDataIngredient())
-      }
-
+    }
 
     render() {
 
-   
-            
-
         // Empty and Loading States
         let view;
-        if (this.props.dataIngredient.length <= 0) {
+        if (this.props.dataIngredient.length <= 0 && this.props.isLoading) {
             view = <p>Loading</p>;
         } else {
             view = this.props.dataIngredient
-            .map((item, i) => {
-                return (
-                    <Recipe id={i} title={item.titleRecipe} ingredients={item.ingredients} />
-                );
-            });;
+                .map((item, i) => {
+                    return (
+                        <Recipe id={i} title={item.titleRecipe} ingredients={item.ingredients} />
+                    );
+                });;
         };
 
         return (<div className="recipes">{view}</div>);
@@ -42,9 +37,16 @@ class Recipes extends Component {
 
 }
 
+Recipes.propTypes = {
+
+    dataIngredient: PropTypes.array,
+    isLoading: PropTypes.bool
+}
+
 const mapStateToProps = (state) => {
     return {
-        dataIngredient: state.dataIngredient
+        dataIngredient: state.dataIngredient,
+        isLoading: state.isLoading
     };
 }
 

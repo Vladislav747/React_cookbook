@@ -1,31 +1,59 @@
-import { CHANGE_FORM_OPEN, GET_DATA_INGREDIENT, FETCH_DATA, FETCH_ERROR } from './action-types';
-import { getRecipes } from '../services/mLab';
+import * as types from './action-types';
 import { configs } from '../dbConfig/config';
 import axios from 'axios';
-
+import { v4 as uuid } from 'uuid';
 
 export function changeIsFormOpen(payload) {
 
-    return { type: CHANGE_FORM_OPEN, payload:!payload }
+    return { type: types.CHANGE_FORM_OPEN, payload:!payload }
 }
 
-const getDataIngredient = (json) => {
-    return {
-        type: GET_DATA_INGREDIENT,
-        payload: json
+export const addDataIngredient = (data) => dispatch => {
+       
+   
+    const id = uuid();
+    return axios.post(configs.URI,
+    {"idRecipe": id,
+    "titleRecipe": data.titleRecipe,
+    "ingredients": data.ingredients})
+      .then(() =>{ 
+        dispatch(addDataSuccess())
+      })
+        .catch(err=> dispatch(addDataError(err)))
+}
+
+
+const addDataSuccess = () => {
+    return{
+        type:types.ADD_DATA_SUCCESS,
+        payload:true
+    }
+}
+
+const addDataError = (err) => {
+    return{
+        type:types.ADD_DATA_ERROR,
+        err
     }
 }
 
 
+const getDataIngredient = (json) => {
+    return {
+        type: types.GET_DATA_INGREDIENT,
+        payload: json
+    }
+}
+
 const fetchData = () => {
     return{
-        type:FETCH_DATA
+        type:types.FETCH_DATA
     }
 }
 
 const getDataError = () => {
     return{
-        type:FETCH_ERROR
+        type:types.FETCH_ERROR
     }
 }
 

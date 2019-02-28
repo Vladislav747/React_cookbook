@@ -1,7 +1,6 @@
 
-import { CHANGE_FORM_OPEN, GET_DATA_INGREDIENT, FETCH_DATA, FETCH_ERROR } from '../action-types';
+import * as types from '../action-types';
 import { combineReducers } from 'redux';
-
 
 //Изначальный state
 export const initialState = {
@@ -9,37 +8,46 @@ export const initialState = {
     isFormOpen: false,
     isLoading: false,
     dataIngredient: [],
-    isError:false
+    isError: false,
+    errors:[],
+    isSubmitting:false,
+    isSuccess:false
 };
 
 //Если есть state то используем его иначе - изначальный state
-function reducer (state = initialState, action) {
+function reducer(state = initialState, action) {
 
     console.log(state);
     console.log(action.type);
 
     switch (action.type) {
 
-        case CHANGE_FORM_OPEN:
+        case types.ADD_DATA_ERROR:
+            return{...state, errors:action.payload}
+
+        case types.ADD_DATA_SUCCESS:
+            return{...state, isSuccess:action.payload}
+
+        case types.CHANGE_FORM_OPEN:
             return { ...state, isFormOpen: action.payload };
 
-        case FETCH_DATA:
-            return {...state, isLoading: true}
+        case types.FETCH_DATA:
+            return { ...state, isLoading: true }
 
-        case FETCH_ERROR:
-        return {...state, isError:true}
+        case types.FETCH_ERROR:
+            return { ...state, isError: true }
 
-        case GET_DATA_INGREDIENT:
-        
+        case types.GET_DATA_INGREDIENT:
+
             return Object.assign({}, state, {
-                isLoading:false,
+                isLoading: false,
                 dataIngredient: action.payload
             });
 
         default:
             return state;
     }
-   
+
 }
 
 export default reducer;

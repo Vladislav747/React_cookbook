@@ -27,8 +27,3 @@ Recipe.propTypes = {
                 new Error(`title is over 20 characters`) :
                 null
 }
-
-Recipe.defaultProps = {
-    ingredients: 0,
-    title: "[recipe]"
-}
