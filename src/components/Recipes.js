@@ -26,7 +26,7 @@ class Recipes extends Component {
             view = this.props.dataIngredient
                 .map((item, i) => {
                     return (
-                        <Recipe id={i} title={item.titleRecipe} ingredients={item.ingredients} />
+                        <Recipe key={item.idRecipe} id={i} title={item.titleRecipe} ingredients={item.ingredients} />
                     );
                 });;
         };

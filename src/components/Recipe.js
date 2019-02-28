@@ -19,7 +19,7 @@ export default class Recipe extends React.Component {
 }
 
 Recipe.propTypes = {
-    ingredients: PropTypes.number,
+    ingredients: PropTypes.string,
     title: (props, propName) =>
         (typeof props[propName] !== 'string') ?
             new Error("A title must be a string") :
