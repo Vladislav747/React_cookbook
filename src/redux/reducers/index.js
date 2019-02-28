@@ -1,16 +1,19 @@
 
-import { CHANGE_FORM_OPEN, GET_DATA_INGREDIENT } from '../action-types';
+import { CHANGE_FORM_OPEN, GET_DATA_INGREDIENT, FETCH_DATA, FETCH_ERROR } from '../action-types';
+import { combineReducers } from 'redux';
 
 
 //Изначальный state
 export const initialState = {
 
     isFormOpen: false,
-    dataIngredient: []
+    isLoading: false,
+    dataIngredient: [],
+    isError:false
 };
 
 //Если есть state то используем его иначе - изначальный state
-export default function reducer(action, state = initialState) {
+function reducer (state = initialState, action) {
 
     console.log(state);
     console.log(action.type);
@@ -20,22 +23,27 @@ export default function reducer(action, state = initialState) {
         case CHANGE_FORM_OPEN:
             return { ...state, isFormOpen: action.payload };
 
+        case FETCH_DATA:
+            return {...state, isLoading: true}
+
+        case FETCH_ERROR:
+        return {...state, isError:true}
+
         case GET_DATA_INGREDIENT:
         
             return Object.assign({}, state, {
-                dataIngredient: state.dataIngredient.concat(action.payload)
+                isLoading:false,
+                dataIngredient: action.payload
             });
 
         default:
             return state;
     }
-
-
-
-
+   
 }
 
-// selectors
-export function getDataRecipes(state) {
-    return state.dataIngredient;
-}
+export default reducer;
+
+
+
+

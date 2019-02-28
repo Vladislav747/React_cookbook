@@ -11,6 +11,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import { getRecipes } from './services/mLab';
 
+
 class App extends Component {
 
     constructor(props) {
@@ -38,7 +39,7 @@ class App extends Component {
                 </header>
 
                 <div className="container">
-                    <Recipes store={store} />
+                    <Recipes />
 
                     <button className="fas fa-hand-point-right" onClick={this.toggleForm}>Открыть Форму</button>
                 {/* <div className={this.state.isFormOpen ? 'AddRecipeFormIsOpen' : 'AddRecipeForm'}>

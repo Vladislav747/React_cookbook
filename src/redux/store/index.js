@@ -1,13 +1,19 @@
-import {createStore} from 'redux';
-import reducer from '../reducers/index';
-import {initialState} from '../reducers/index';
+import {createStore, applyMiddleware} from 'redux';
+import rootReducer from '../reducers/index';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+import reducer, {initialState} from '../reducers/index';
 
- const store = createStore(reducer, initialState);
+// const loggerMiddleware = createLogger();
 
-// console.log(store.getState());
-// store.subscribe(() => console.log('Look ma, Redux!!'))
-// store.dispatch(changeIsMenuOpen);
-// store.dispatch(changeIsFormOpen);
-// store.dispatch(addDataIngredient);
+// export default function configureStore(preloadedState){
+//     return createStore(rootReducer, preloadedState, applyMiddleware(thunkMiddleware, loggerMiddleware))
+// }
+
+ function configureStore(initialState) {
+    const store = createStore(reducer, initialState)
+    return store
+  }
+const store = configureStore();
 
 export default store;

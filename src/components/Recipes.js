@@ -4,39 +4,51 @@ import Recipe from './Recipe';
 import { connect } from "react-redux";
 
 import '../scss/Recipes.css';
-// import {store} from '../redux/store'; 
 
-import { getDataRecipes } from '../redux/reducers';
-import { getDataIngredient } from '../redux/actions';
-import store from "../redux/store";
-//Recipes как функция а не как класс
-const Recipes = () => {
-    store.dispatch(getDataIngredient());
-    const { dataIngredient } = store.getState();
+import { getDataIngredient, fetchDataIngredient } from '../redux/actions';
+
+class Recipes extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+        // const { dispatch, dataIngredient} = this.props
+        // dispatch(fetchDataIngredient())
+      }
 
 
-    return (
-        <div className="recipes">
-            {dataIngredient
-                .map((item, i) =>
-                    <Recipe id={i} title={item.titleRecipe} ingredients={item.ingredients} />
-                )
-            }
-        </div>
-    )
+    render() {
+
+        const recipesData =
+            this.props.dataIngredient
+                .map((item, i) => {
+                    return (
+                        <Recipe id={i} title={item.titleRecipe} ingredients={item.ingredients} />
+                    );
+                });
+
+        // Empty and Loading States
+        let view;
+        if (recipesData.length <= 0) {
+            view = <p>Loading</p>;
+        } else {
+            view = recipesData;
+        };
+
+        return (<div className="recipes">{view}</div>);
+
+    }
+
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//         dataIngredient: getDataRecipes(state),
-//     };
-//   }
+const mapStateToProps = (state) => {
+    return {
+        dataIngredient: state.dataIngredient
+    };
+}
 
-//   const mapDispatchToProps = dispatch => ({
-//     getDataIngredient: () => dispatch(getDataIngredient)
-//   });
-
-//   export default connect(mapStateToProps,mapDispatchToProps)(Recipes);
+export default connect(mapStateToProps)(Recipes);
 
 
 
@@ -44,25 +56,24 @@ const Recipes = () => {
 
 
 
-// class Recipes extends Component {
-//     constructor(props){
-//         super(props);
-//     }
 
-//     render() {
-//         const ShowRecipes = 
-//             this.props.dataIngredient
-//             .map((item, i) => {
-//                 return (
+
+
+
+
+//Recipes как функция а не как класс
+// const Recipes = () => {
+//     store.dispatch(getDataIngredient());
+//     // const { dataIngredient } = store.getState();
+//     store.subscribe(() => console.log("Обновилось",store.getState()));
+
+//     return (
+//         <div className="recipes">
+//             {this.props.dataIngredient
+//                 .map((item, i) =>
 //                     <Recipe id={i} title={item.titleRecipe} ingredients={item.ingredients} />
-//                 );
-//             });
-
-
-//     return (<div className="recipes">{ShowRecipes}</div>);
-
-//      }
-
+//                 )
+//             }
+//         </div>
+//     )
 // }
-
-export default Recipes;
