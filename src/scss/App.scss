@@ -1,7 +1,5 @@
 .App {
   height: 100%;
-
-  
 }
 
 header {
@@ -12,27 +10,6 @@ header {
   background-color: #297fb8;
 }
 
-aside {
-  background-color: #297fb8;
-  width: 200px;
-  height: calc(100vh - 50px);;
-  border-right: 1px solid #236fa3;
-  color: white;
-  position: absolute;
-  top: 50px;
-  left: -200px;
-  transition: all 0.5s linear;
-}
-
-aside.isOpen {
-  left: 0;
-}
-
-.menu-btn {
-  background: none;
-  color: white;
-  border: none;
-}
 
 main {
   flex: 1;
@@ -40,7 +17,7 @@ main {
 
 .AddRecipeForm{
   position: relative;
-  left: -210px;
+  left: -910px;
   transition: all 0.5s linear;
 }
 

@@ -23,8 +23,9 @@ class AddRecipeForm extends Component {
     render() {
         return (
             <div className="AddRecipeFormContainer" >
+               
+                <form className="formIngredient" onSubmit={this.onSubmit}> 
                 <p>Форма добавления рецепта</p>
-                <form className="formIngredient" onSubmit={this.onSubmit}>
                     <label>
                         Title of Recipe:
                     <div>
