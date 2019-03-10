@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 
 import { connect } from "react-redux";
 import { PropTypes } from 'prop-types';
-import { fetchDataIngredient,addDataIngredient } from '../redux/actions';
-
+import { fetchDataIngredient, addDataIngredient } from '../redux/actions';
 import '../scss/AddRecipeForm.scss';
 
 class AddRecipeForm extends Component {
@@ -15,19 +14,16 @@ class AddRecipeForm extends Component {
 
     onSubmit = event => {
         event.preventDefault();
-    
+
         const data = {
             titleRecipe: event.target.titleRecipe.value,
             ingredients: event.target.ingredients.value,
         }
-       
-        const {dispatch} = this.props;
+
+        const { dispatch } = this.props;
         dispatch(addDataIngredient(data));
-        dispatch(fetchDataIngredient());
-        
     }
 
-    
     render() {
         return (
             <div className="AddRecipeFormContainer" >
@@ -49,28 +45,21 @@ class AddRecipeForm extends Component {
                     </label>
                     <button className="btnSubmit" type="submit" disabled={this.props.isSubmiting}>Отправить</button>
                 </form>
-                {this.props.isSuccess && <Success/>}
+
             </div>
-           
+
         )
     };
 }
 
-const Success = () => (
-    <div className='modal'>
-          Сообщение отправлено. Спасибо!
-      </div>)
-
 AddRecipeForm.propTypes = {
-
-    errors: PropTypes.array,
+ 
     isSubmitting: PropTypes.bool,
     isSuccess: PropTypes.bool
 }
 
 const mapStateToProps = (state) => {
     return {
-        errors: state.errors,
         isSubmitting: state.isSubmitting,
         isSuccess: state.isSuccess
     };

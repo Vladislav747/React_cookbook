@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "babel": "^6.23.0",
     "node-sass": "^4.11.0",
+    "noty": "^3.2.0-beta",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^6.0.1",

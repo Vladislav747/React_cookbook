@@ -7,25 +7,26 @@ import '../scss/App.css';
 import AddRecipeForm from '../components/AddRecipeForm';
 import Recipes from '../components/Recipes';
 
-import { changeIsFormOpen } from '../redux/actions';
+import { changeForm} from '../redux/actions';
 import { PropTypes } from 'prop-types';
+import Message from './Message';
 
 class App extends Component {
 
     constructor(props) {
         super(props)
 
-        /*При использовании схемы типа class App extends Component  
-        нужно привязывать область видимости явно при React.createClass не нужно*/
         this.toggleForm = this.toggleForm.bind(this);
+             
 
     }
 
     //Открыть или скрыть форму
     toggleForm = () => {
-        const {dispatch} = this.props
-        dispatch(changeIsFormOpen(this.props.isFormOpen))
+        const {dispatch} = this.props;
+        dispatch(changeForm(this.props.isFormOpen));
     };
+
 
     render() {
 
@@ -36,9 +37,11 @@ class App extends Component {
                 </header>
 
                 <div className="container">
+                    {/* {n.show()} */}
+                    <Message/>
                     <Recipes />
 
-                    <button className="btnRecipes" onClick={this.toggleForm}>Открыть Форму</button>
+                    <button className="btnRecipes" onClick={this.toggleForm}>Лобавить Рецепт</button>
                     <div className={this.props.isFormOpen ? 'AddRecipeFormIsOpen' : 'AddRecipeForm'}>
                         <AddRecipeForm />
                     </div>
@@ -48,6 +51,7 @@ class App extends Component {
         );
     }
 }
+
 
 App.propTypes = {
 

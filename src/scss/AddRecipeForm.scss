@@ -53,6 +53,20 @@
 
  .modal{
      background: #9fd574;
+     position: absolute;
+     width: 400px;
+     height: 100px;
+     left: 500px;
+     word-wrap: break-word;
+     text-align: center;
+     border: 3px solid #000000;
+     border-radius: 10px;
+     z-index: 999;
+     cursor:pointer;
+     display: block;
+ }
+ .modal_close {
+     display: none;
  }
 
  

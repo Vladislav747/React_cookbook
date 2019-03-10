@@ -3,39 +3,59 @@ import { configs } from '../dbConfig/config';
 import axios from 'axios';
 import { v4 as uuid } from 'uuid';
 
-export function changeIsFormOpen(payload) {
+export function changeForm(payload) {
 
-    return { type: types.CHANGE_FORM_OPEN, payload:!payload }
+    return { type: types.CHANGE_FORM, payload:!payload }
+}
+
+
+export function changeMessage(payload) {
+
+    return { type: types.CHANGE_ERROR_MESSAGE, payload:!payload }
 }
 
 export const addDataIngredient = (data) => dispatch => {
        
-   
     const id = uuid();
     return axios.post(configs.URI,
     {"idRecipe": id,
     "titleRecipe": data.titleRecipe,
     "ingredients": data.ingredients})
       .then(() =>{ 
-        dispatch(addDataSuccess())
+        dispatch(dataSuccess("addDataSuccess"));
+        dispatch(fetchDataIngredient());
       })
-        .catch(err=> dispatch(addDataError(err)))
+         .catch(err=> 
+        dispatch(dataError(err, "addDataError")))
 }
 
 
-const addDataSuccess = () => {
+const dataSuccess = (type) => {
     return{
-        type:types.ADD_DATA_SUCCESS,
-        payload:true
+        type:types.DATA_SUCCESS,
+        payload:{typeSuccess:type, isSuccess:true}
     }
 }
 
-const addDataError = (err) => {
+const dataError = (err,type) => {
     return{
-        type:types.ADD_DATA_ERROR,
-        err
+        type:types.DATA_ERROR,
+        payload:{errMessage:err.message, type:type}
     }
 }
+
+export const deleteDataIngredient = (id) => dispatch => {
+
+    return axios.delete(configs.URI_FOR_DELETE+id+'?apiKey='+configs.MYAPIKEY)
+          .then(() =>{ 
+            dispatch(dataSuccess("deleteDataSuccess"))
+            dispatch(fetchDataIngredient());
+          })
+             .catch(err=> 
+            dispatch(dataError(err, "deleteDataError"))
+            )
+}
+
 
 
 const getDataIngredient = (json) => {
@@ -51,11 +71,6 @@ const fetchData = () => {
     }
 }
 
-const getDataError = () => {
-    return{
-        type:types.FETCH_ERROR
-    }
-}
 
 export const fetchDataIngredient = () => dispatch => {
        
@@ -63,8 +78,8 @@ export const fetchDataIngredient = () => dispatch => {
 
         return axios.get(configs.URI)
           .then((response) =>{ 
-           const responseData = response.data;
-            dispatch(getDataIngredient(responseData))
+            dispatch(getDataIngredient(response.data));
           })
-            .catch(err=> dispatch(getDataError(err)))
+          .catch(err=> dispatch(
+                dataError(err, "fetchDataError")))
     }

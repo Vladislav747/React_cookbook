@@ -1,6 +1,7 @@
-export const CHANGE_FORM_OPEN = 'CHANGE_FORM_OPEN';
+export const CHANGE_FORM = 'CHANGE_FORM';
+export const CHANGE_ERROR_MESSAGE = 'CHANGE_ERROR_MESSAGE';
 export const GET_DATA_INGREDIENT = 'GET_DATA_INGREDIENT';
 export const FETCH_DATA = "FETCH_DATA";
 export const FETCH_ERROR = "FETCH_ERROR";
-export const ADD_DATA_SUCCESS = "ADD_DATA_SUCCESS";
-export const ADD_DATA_ERROR = "ADD_DARA_ERROR";
+export const DATA_SUCCESS = "DATA_SUCCESS";
+export const DATA_ERROR = "DATA_ERROR";

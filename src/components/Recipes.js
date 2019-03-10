@@ -7,13 +7,11 @@ import '../scss/Recipes.css';
 import { fetchDataIngredient } from '../redux/actions';
 
 class Recipes extends Component {
-    constructor(props) {
-        super(props);
-    }
+
 
     componentDidMount() {
-        const { dispatch } = this.props
-        dispatch(fetchDataIngredient())
+        const { dispatch } = this.props;
+        dispatch(fetchDataIngredient());
     }
 
     render() {
@@ -26,11 +24,11 @@ class Recipes extends Component {
             view = this.props.dataIngredient
                 .map((item, i) => {
                     return (
-                        <Recipe key={item.idRecipe} id={i} title={item.titleRecipe} ingredients={item.ingredients} />
+                        <Recipe key={item.idRecipe} id={item._id.$oid} title={item.titleRecipe} ingredients={item.ingredients} />
                     );
                 });;
         };
-
+        
         return (<div className="recipes">{view}</div>);
 
     }
