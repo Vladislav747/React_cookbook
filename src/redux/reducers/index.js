@@ -40,8 +40,6 @@ function reducer(state = initialState, action) {
 
         case types.FETCH_ERROR:
 
-        //иммутабельность данных -  неизменяемость данных
-        //Создаю новый объект
             return { ...state, errors: action.payload }
 
         case types.GET_DATA_INGREDIENT:
