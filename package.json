@@ -1,12 +1,15 @@
 {
-  "name": "reactdom_refs_new",
+  "name": "React_cookbook",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vladislav747/React_cookbook.git"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "babel": "^6.23.0",
     "node-sass": "^4.11.0",
-    "noty": "^3.2.0-beta",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^6.0.1",
@@ -15,14 +18,13 @@
     "redux-logger": "^3.0.6",
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
-    "seamless-immutable": "^7.1.4",
     "uuid": "^3.3.2",
     "webpack-cli": "^3.0.3",
     "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "webpack-dev-server --config=config/webpack.dev.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build": "react-scripts build"
