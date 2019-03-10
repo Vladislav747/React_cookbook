@@ -4,15 +4,11 @@ import { connect } from "react-redux";
 import { PropTypes } from 'prop-types';
 import { changeMessage } from '../redux/actions';
 import { displayMessage } from '../services';
-import '../scss/AddRecipeForm.scss';
+import '../scss/index.scss';
 
 class Message extends Component {
 
-    //Изначальный state
-    constructor(props) {
-        super(props);
-    }
-
+    
     toggleWindow = () => {
             const {dispatch} = this.props;
             dispatch(changeMessage(this.props.isMessageOpen));

@@ -1,8 +1,8 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import '../scss/Recipe.css';
+import '../scss/index.scss';
 import { connect } from "react-redux";
-import { fetchDataIngredient, deleteDataIngredient } from '../redux/actions';
+import { deleteDataIngredient } from '../redux/actions';
 
 class Recipe extends React.Component {
 
@@ -12,12 +12,11 @@ class Recipe extends React.Component {
     }
 
     
- //Открыть или скрыть форму
+ //Удалить рецепт
  deleteRecipe = () => {
     const {dispatch} = this.props;
     const {id}  = this.props;
     dispatch(deleteDataIngredient(id));
-    dispatch(fetchDataIngredient());
 };
 
 

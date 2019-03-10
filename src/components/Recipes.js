@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Recipe from './Recipe';
 import { connect } from "react-redux";
 import { PropTypes } from 'prop-types';
-import '../scss/Recipes.css';
+import '../scss/index.scss';
 
 import { fetchDataIngredient } from '../redux/actions';
 

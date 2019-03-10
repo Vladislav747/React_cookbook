@@ -2,16 +2,12 @@ import React, { Component } from 'react';
 
 import { connect } from "react-redux";
 import { PropTypes } from 'prop-types';
-import { fetchDataIngredient, addDataIngredient } from '../redux/actions';
-import '../scss/AddRecipeForm.scss';
+import { addDataIngredient } from '../redux/actions';
+import '../scss/index.scss';
 
 class AddRecipeForm extends Component {
 
-    //Изначальный state
-    constructor(props) {
-        super(props);
-    }
-
+  
     onSubmit = event => {
         event.preventDefault();
 

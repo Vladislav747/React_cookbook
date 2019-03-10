@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-//css
+
+//scss
 import '../scss/index.scss';
-import '../scss/App.css';
+
 //components
 import AddRecipeForm from '../components/AddRecipeForm';
 import Recipes from '../components/Recipes';
+import Message from './Message';
 
 import { changeForm} from '../redux/actions';
 import { PropTypes } from 'prop-types';
-import Message from './Message';
+
 
 class App extends Component {
 
     constructor(props) {
         super(props)
-
         this.toggleForm = this.toggleForm.bind(this);
-             
-
     }
 
     //Открыть или скрыть форму
@@ -37,11 +36,10 @@ class App extends Component {
                 </header>
 
                 <div className="container">
-                    {/* {n.show()} */}
                     <Message/>
                     <Recipes />
 
-                    <button className="btnRecipes" onClick={this.toggleForm}>Лобавить Рецепт</button>
+                    <button className="btnRecipes" onClick={this.toggleForm}>Добавить Рецепт</button>
                     <div className={this.props.isFormOpen ? 'AddRecipeFormIsOpen' : 'AddRecipeForm'}>
                         <AddRecipeForm />
                     </div>
