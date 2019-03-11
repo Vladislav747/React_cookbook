@@ -1,7 +1,8 @@
 module.exports = {
   entry:"./src/index.js",
   output: {
-    path: __dirname+ "/public/", 
+    path: __dirname + '/public',
+    publicPath: '/public/',
     filename: 'bundle.js'
   },
   devtool: '#sourcemap',
@@ -9,12 +10,15 @@ module.exports = {
     rules: [
       {
         test: /.js?$/,
-        use: 'babel-loader',
+        use: {
+          loader:'babel-loader'
+        },
+       
         exclude: /node_modules/
       },
       { 
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        test: /\.css|.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
     ]
   }
