@@ -22,6 +22,7 @@ export const addDataIngredient = (data) => dispatch => {
     "titleRecipe": data.titleRecipe,
     "ingredients": data.ingredients})
       .then(() =>{ 
+          
         dispatch(dataSuccess("addDataSuccess"));
         dispatch(fetchDataIngredient());
       })
@@ -48,6 +49,7 @@ export const deleteDataIngredient = (id) => dispatch => {
 
     return axios.delete(configs.URI_FOR_DELETE+id+'?apiKey='+configs.MYAPIKEY)
           .then(() =>{ 
+          
             dispatch(dataSuccess("deleteDataSuccess"))
             dispatch(fetchDataIngredient());
           })
@@ -78,6 +80,7 @@ export const fetchDataIngredient = () => dispatch => {
 
         return axios.get(configs.URI)
           .then((response) =>{ 
+              
             dispatch(getDataIngredient(response.data));
           })
           .catch(err=> dispatch(

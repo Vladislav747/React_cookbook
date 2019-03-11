@@ -1,4 +1,10 @@
 module.exports = {
+  entry:"./src/index.js",
+  output: {
+    path: __dirname+ "/public/", 
+    filename: 'bundle.js'
+  },
+  devtool: '#sourcemap',
    module: {
     rules: [
       {
@@ -8,11 +14,7 @@ module.exports = {
       },
       { 
         test: /\.css$/,
-        use: ['style-loader', 'css-loader', {
-          loader: 'postcss-loader',
-          options: {
-            plugins: () => [require('autoprefixer')]
-          }}]
+        use: ['style-loader', 'css-loader']
       },
     ]
   }
