@@ -14,7 +14,7 @@ export function displayMessage (props) {
         Рецепт удален. Спасибо!
     </p>)
     }
-    
+
     switch (errors.type) {
         case "addDataError" :
         return (<p>
@@ -34,22 +34,5 @@ export function displayMessage (props) {
         default:
             break;
     }
-    // if(errors.type === "addDataError" ){
-    //     return (<p>
-    //       Сообщение было отправлено с ошибками. 
-    //       Обратитесь к администратору или попробуйте отправить еще раз
-    //   </p>);
-    // }
-    // if(errors.type === "deleteDataError" ){
-    //     return (<p>
-    //       Рецепт не был удален 
-    //       Обратитесь к администратору или попробуйте удалить еще раз
-    //   </p>);
-    // }
-    // if(errors.type === "fetchDataError" ){
-    //     return (<p>
-    //      Рецепты не были получены
-    //       Обратитесь к администратору или попробуйте еще раз
-    //   </p>);
-    // }
+    
 }
