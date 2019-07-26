@@ -31,15 +31,18 @@ class App extends Component {
 
         return (
             <div className="App">
-                <header>
-                    <h1>Книга Рецептов</h1>
-                </header>
+               
 
                 <div className="container">
+
+                 <header>
+                    <h1>Книга Рецептов</h1> 
+                    <button className="btnRecipes" onClick={this.toggleForm}>Добавить Рецепт</button>
+                </header>
                     <Message/>
                     <Recipes />
 
-                    <button className="btnRecipes" onClick={this.toggleForm}>Добавить Рецепт</button>
+                   
                     <div className={this.props.isFormOpen ? 'AddRecipeFormIsOpen' : 'AddRecipeForm'}>
                         <AddRecipeForm />
                     </div>

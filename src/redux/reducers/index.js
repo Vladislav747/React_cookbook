@@ -45,10 +45,15 @@ function reducer(state = initialState, action) {
         case types.GET_DATA_INGREDIENT:
 
             //иммутабельность данных
-            return Object.assign({}, state, {
-                isLoading: false,
-                dataIngredient: action.payload
-            });
+
+            return {
+                ...state,
+                dataIngredient: [...action.payload]
+            }
+            // return Object.assign({}, state, {
+            //     isLoading: false,
+            //     dataIngredient: action.payload
+            // });
 
         default:
             return state;
