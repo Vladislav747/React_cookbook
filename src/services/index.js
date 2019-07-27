@@ -3,18 +3,19 @@ import React from 'react';
 export function displayMessage (props) {
     const {isSuccess, typeSuccess , errors} = props;
   
-    
-    if(isSuccess===true && typeSuccess === 'addDataSuccess'){
-        return (<p>
-          Рецепт добавлен. Спасибо!
-      </p>)
-    }
-    else if(isSuccess===true && typeSuccess === 'deleteDataSuccess'){
-        return (<p>
-        Рецепт удален. Спасибо!
-    </p>)
-    }
+    var str;
 
+    if(isSuccess===true){ 
+    if(typeSuccess === 'addDataSuccess'){
+        str = "Рецепт добавлен. Спасибо!";
+        return str;
+    }
+    else if(typeSuccess === 'deleteDataSuccess'){
+        str = "Рецепт удален. Спасибо!";
+        return str;
+        }
+    }
+    else{
     switch (errors.type) {
         case "addDataError" :
         return (<p>
@@ -34,5 +35,5 @@ export function displayMessage (props) {
         default:
             break;
     }
-    
+}
 }

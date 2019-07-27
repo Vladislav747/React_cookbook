@@ -19,16 +19,19 @@ class Recipes extends Component {
         
     }
     render() {
-        const { dataIngredient, isLoading } = this.props;
+        const { dataIngredient} = this.props;
         // Empty and Loading States
         let view;
-        if (this.props.dataIngredient.length == 0) {
+        if (dataIngredient.length == 0) {
             view = <p>Loading</p>;
         } else {
             view = this.props.dataIngredient
                 .map((item, i) => {
                     return (
-                        <Recipe key={item.idRecipe} id={item._id.$oid} title={item.titleRecipe} ingredients={item.ingredients} />
+                        <Recipe key={item.idRecipe} 
+                        id={item._id.$oid} 
+                        title={item.titleRecipe} 
+                        ingredients={item.ingredients} />
                     );
                 });;
         };

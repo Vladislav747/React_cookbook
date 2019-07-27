@@ -18,7 +18,8 @@ class Message extends Component {
     render() {
         return (
             <div className={this.props.isMessageOpen ? 'modal' : 'modal_close'}>
-              {this.props.isMessageOpen && displayMessage(this.props)}
+              {this.props.isMessageOpen}
+              <p>{displayMessage(this.props)}</p>
               <button className="btnRecipes" onClick={this.toggleWindow}>Закрыть Окно</button>
             </div>
 
