@@ -53,11 +53,7 @@ console.log(action.payload); console.log(state);
                 dataIngredient: [...action.payload]
             };
 
-            // return{
-            //     ...state,
-            //     dataIngredient: [...state.dataIngredient, action.payload]
-            // }
-
+           
          
             // return Object.assign({}, state, {
                 
