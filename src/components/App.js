@@ -13,6 +13,9 @@ import { changeForm} from '../redux/actions';
 import { PropTypes } from 'prop-types';
 import { fetchDataIngredient } from '../redux/actions';
 
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+
 
 const mapStateToProps = state => {
     console.log(state);
@@ -37,25 +40,20 @@ class App extends Component {
         dispatch(changeForm(this.props.isFormOpen));
     };
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.redirectTo) {
-            // this.context.router.replace(nextProps.redirectTo);
-            store.dispatch(push(nextProps.redirectTo));
-            this.props.onRedirect();
-          }
-    }
-
+  
     render() {
 
         return (
             <div className="App">
                
-
                 <div className="container">
 
                  <header>
-                    <h1>Книга Рецептов</h1> 
-                    <button className="btnRecipes" onClick={this.toggleForm}>Добавить Рецепт</button>
+                    <h1>Книга Рецептов</h1>   
+      
+                     <Link to="/addrecipeform">
+                    <button className="btnRecipes">Добавить Рецепт</button>
+                    </Link>
                 </header>
 
                     <Message/>
@@ -65,8 +63,10 @@ class App extends Component {
                     <div className={this.props.isFormOpen ? 'AddRecipeFormIsOpen' : 'AddRecipeForm'}>
                         <AddRecipeForm />
                     </div>
-                </div>
+               
 
+               
+</div>
             </div>
         );
     }
