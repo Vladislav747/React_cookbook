@@ -11,6 +11,17 @@ import Message from './Message';
 
 import { changeForm} from '../redux/actions';
 import { PropTypes } from 'prop-types';
+import { fetchDataIngredient } from '../redux/actions';
+
+
+const mapStateToProps = state => {
+    console.log(state);
+    return {
+        isFormOpen: state.isFormOpen,
+        dataIngredient: state.dataIngredient,
+         isLoading: state.isLoading
+    };
+}
 
 
 class App extends Component {
@@ -26,6 +37,13 @@ class App extends Component {
         dispatch(changeForm(this.props.isFormOpen));
     };
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.redirectTo) {
+            // this.context.router.replace(nextProps.redirectTo);
+            store.dispatch(push(nextProps.redirectTo));
+            this.props.onRedirect();
+          }
+    }
 
     render() {
 
@@ -39,8 +57,9 @@ class App extends Component {
                     <h1>Книга Рецептов</h1> 
                     <button className="btnRecipes" onClick={this.toggleForm}>Добавить Рецепт</button>
                 </header>
+
                     <Message/>
-                    <Recipes />
+                    <Recipes isLoading={this.props.isLoading} dataIngredient={this.props.dataIngredient}/>
 
                    
                     <div className={this.props.isFormOpen ? 'AddRecipeFormIsOpen' : 'AddRecipeForm'}>
@@ -56,13 +75,10 @@ class App extends Component {
 
 App.propTypes = {
 
-    isFormOpen: PropTypes.bool
+    isFormOpen: PropTypes.bool,
+    dataIngredient: PropTypes.array
 }
 
-const mapStateToProps = (state) => {
-    return {
-        isFormOpen: state.isFormOpen
-    };
-}
+
 
 export default connect(mapStateToProps)(App);

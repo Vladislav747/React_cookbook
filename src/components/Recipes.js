@@ -14,11 +14,15 @@ class Recipes extends Component {
         dispatch(fetchDataIngredient());
     }
 
+    constructor(props) {
+        super(props)
+        
+    }
     render() {
-
+        const { dataIngredient, isLoading } = this.props;
         // Empty and Loading States
         let view;
-        if (this.props.dataIngredient.length <= 0 && this.props.isLoading) {
+        if (this.props.dataIngredient.length == 0) {
             view = <p>Loading</p>;
         } else {
             view = this.props.dataIngredient
@@ -42,6 +46,7 @@ Recipes.propTypes = {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state, "Recipes");
     return {
         dataIngredient: state.dataIngredient,
         isLoading: state.isLoading

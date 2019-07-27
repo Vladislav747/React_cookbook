@@ -1,4 +1,4 @@
-import * as types from './action-types';
+import * as types from './constants/action-types';
 import { configs } from '../dbConfig/config';
 import axios from 'axios';
 import { v4 as uuid } from 'uuid';
@@ -80,9 +80,9 @@ export const fetchDataIngredient = () => dispatch => {
 
         return axios.get(configs.URI)
           .then((response) =>{ 
-              
             dispatch(getDataIngredient(response.data));
           })
           .catch(err=> dispatch(
                 dataError(err, "fetchDataError")))
     }
+

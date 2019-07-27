@@ -1,5 +1,5 @@
 
-import * as types from '../action-types';
+import * as types from '../constants/action-types';
 
 //Изначальный state
 export const initialState = {
@@ -36,7 +36,8 @@ function reducer(state = initialState, action) {
             return { ...state, isMessageOpen: action.payload };
 
         case types.FETCH_DATA:
-            return { ...state, isLoading: true }
+            return { ...state, 
+                isLoading: true }
 
         case types.FETCH_ERROR:
 
@@ -45,15 +46,24 @@ function reducer(state = initialState, action) {
         case types.GET_DATA_INGREDIENT:
 
             //иммутабельность данных
-
+console.log(action.payload); console.log(state);
             return {
                 ...state,
+                isLoading: false,
                 dataIngredient: [...action.payload]
-            }
+            };
+
+            // return{
+            //     ...state,
+            //     dataIngredient: [...state.dataIngredient, action.payload]
+            // }
+
+         
             // return Object.assign({}, state, {
-            //     isLoading: false,
+                
             //     dataIngredient: action.payload
             // });
+           
 
         default:
             return state;
