@@ -13,10 +13,6 @@ import { changeForm} from '../redux/actions';
 import { PropTypes } from 'prop-types';
 import { fetchDataIngredient } from '../redux/actions';
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-
-
 const mapStateToProps = state => {
     console.log(state);
     return {
@@ -25,7 +21,6 @@ const mapStateToProps = state => {
          isLoading: state.isLoading
     };
 }
-
 
 class App extends Component {
 
@@ -39,46 +34,29 @@ class App extends Component {
         const {dispatch} = this.props;
         dispatch(changeForm(this.props.isFormOpen));
     };
-
   
     render() {
-
         return (
             <div className="App">
-               
-                <div className="container">
-
-                 {/* <header>
-                    <h1>Книга Рецептов</h1>   
-      
-                     <Link to="/addrecipeform">
-                    <button className="btnRecipes">Добавить Рецепт</button>
-                    </Link>
-                </header> */}
+               <div className="container">
                 <Header/>
 
                     <Message/>
                     <Recipes isLoading={this.props.isLoading} dataIngredient={this.props.dataIngredient}/>
-
                    
                     <div className={this.props.isFormOpen ? 'AddRecipeFormIsOpen' : 'AddRecipeForm'}>
                         <AddRecipeForm />
                     </div>
-               
-               
-</div>
+                              
+            </div>
             </div>
         );
     }
 }
 
-
 App.propTypes = {
-
     isFormOpen: PropTypes.bool,
     dataIngredient: PropTypes.array
 }
-
-
 
 export default connect(mapStateToProps)(App);
