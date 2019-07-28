@@ -1,6 +1,6 @@
 .recipe {
     width: 200px;
-    min-height: 355px;
+    min-height: 250px;
     margin: 40px;
     background: #afafaf;
     border: 1px solid black; /* Параметры рамки */
@@ -9,4 +9,21 @@
     flex-basis: calc(33% - 16px);
     -webkit-flex-basis: calc(33% - 16px);
     margin: 8px;
+}
+
+.recipe-image{
+    overflow: hidden;
+    border-radius: 2px 2px 0 0;
+    max-height: 200px;
+}
+.recipe-image img{
+    cursor: zoom-in;
+    width: 100%;
+    height: auto;
+    transition: transform .3s ease-in;
+    transform: scale(1);
+}
+
+.recipe-image img:hover{
+    transform: scale(1.1);
 }

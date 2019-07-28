@@ -24,11 +24,19 @@ class Recipe extends React.Component {
         const { ingredients, title } = this.props;
         return (
             <div className="recipe">
-                <h1>{title}</h1>
+            <div class="recipe-image">
+            <img src="https://res.cloudinary.com/sivadass/image/upload/v1493620046/dummy-products/cucumber.jpg" alt="Cucumber - 1 Kg"></img>
+            </div>
+        
+                <div class="recipe-name"><h1>{title}</h1></div>
+                <div class="recipe-description">
                 <p>
                     <span> Ingredients | {ingredients}</span>
                 </p>
+                </div>
+                <div class="recipe-action">
                 <button className="btnDeleteRecipe" onClick={this.deleteRecipe}>Удалить Рецепт</button>
+                </div>
             </div>
         )
     }
