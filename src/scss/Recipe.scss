@@ -1,9 +1,12 @@
 .recipe {
-    height: 200px;
     width: 200px;
+    min-height: 355px;
     margin: 40px;
     background: #afafaf;
     border: 1px solid black; /* Параметры рамки */
     padding: 15px; /* Поля вокруг текста */
-    border-radius: 20px;
+    border-radius: 2px;
+    flex-basis: calc(33% - 16px);
+    -webkit-flex-basis: calc(33% - 16px);
+    margin: 8px;
 }
