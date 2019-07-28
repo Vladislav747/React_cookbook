@@ -65,7 +65,6 @@ class App extends Component {
                         <AddRecipeForm />
                     </div>
                
-
                
 </div>
             </div>

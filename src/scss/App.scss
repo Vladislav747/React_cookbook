@@ -8,16 +8,6 @@ body{
   height: 100%;
 }
 
-header {
-  display: flex;
-  align-items: center;
-  padding: 30px 32px;
-  flex: 0 0 50px;
-  background-color: #fff;
-  h1{
-        margin: auto;
-  }
-}
 
 
 main {
@@ -46,22 +36,6 @@ main {
   }
 }
 
-.btnRecipes {
-  margin-left:40px;
-  position:relative;
-  height:50px;
-  width:200px;
-  border-radius:3px;
-  border:rgba(0,0,0,.3) 0px solid;
-  box-sizing:border-box;
-  padding:10px;
-  background:#90c843;
-  color:#FFF;
-  font-family: 'Open Sans', sans-serif;  
-  font-weight:400;
-  font-size: 16pt;
-  cursor:pointer;
-}
 
 .modal{
   background: #9fd574;
@@ -69,6 +43,7 @@ main {
   width: 400px;
   height: 100px;
   left: 500px;
+  top:300px;
   word-wrap: break-word;
   text-align: center;
   border: 3px solid #000000;

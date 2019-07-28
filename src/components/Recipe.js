@@ -28,14 +28,14 @@ class Recipe extends React.Component {
             <img src="https://res.cloudinary.com/sivadass/image/upload/v1493620046/dummy-products/cucumber.jpg" alt="Cucumber - 1 Kg"></img>
             </div>
         
-                <div className="recipe-name"><h1>{title}</h1></div>
+                <div className="recipe-name"><h2>{title}</h2></div>
                 <div className="recipe-description">
                 <p>
                     <span> Ingredients | {ingredients}</span>
                 </p>
                 </div>
                 <div className="recipe-action">
-                <button className="btnDeleteRecipe" type="button" onClick={this.deleteRecipe}>Удалить Рецепт</button>
+                <button className="btnDeleteRecipe" type="button" onClick={this.deleteRecipe}>УДАЛИТЬ РЕЦЕПТ</button>
                 </div>
             </div>
         )

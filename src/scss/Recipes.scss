@@ -1,15 +1,23 @@
 .recipes-wrapper {
-    padding-top:20px;
+  padding-top: 20px;
+  @media (max-width: 991px) {
+    padding-top: 68px;
   }
-  
+  @media (max-width: 480px) {
+    padding-top: 52px;
+  }
+}
 
 .recipes {
-    display: flex;
-    display: -webkit-flex;
-    flex-wrap: wrap;
-    -webkit-flex-wrap: wrap;
-    padding: 16px;
-    max-width: 960px;
-    margin: 0 auto;
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  padding: 16px;
+  max-width: 960px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 8px;
   }
-  
+}
