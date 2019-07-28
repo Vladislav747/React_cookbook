@@ -1,9 +1,10 @@
+@import 'base/colors';
+
 .recipe {
     width: 200px;
     min-height: 250px;
     margin: 40px;
-    background: #afafaf;
-    border: 1px solid black; /* Параметры рамки */
+    background: $white;
     padding: 15px; /* Поля вокруг текста */
     border-radius: 2px;
     flex-basis: calc(33% - 16px);
@@ -26,4 +27,25 @@
 
 .recipe-image img:hover{
     transform: scale(1.1);
+}
+
+.recipe-action button{
+   font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 13pt;
+  height: 36px;
+  border-radius: 2px;
+  text-align: center;
+  color: $white;
+  background: $primary-red;
+  border: 0;
+  font-weight: 400;
+  padding: 0 16px;
+  cursor: pointer;
+  &:hover {
+    background: lighten($primary-red, 10%);
+  }
+  &:focus {
+    outline: none;
+  }
 }

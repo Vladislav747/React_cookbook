@@ -8,7 +8,7 @@ import '../scss/index.scss';
 import AddRecipeForm from '../components/AddRecipeForm';
 import Recipes from '../components/Recipes';
 import Message from './Message';
-
+import Header from './Header';
 import { changeForm} from '../redux/actions';
 import { PropTypes } from 'prop-types';
 import { fetchDataIngredient } from '../redux/actions';
@@ -48,13 +48,14 @@ class App extends Component {
                
                 <div className="container">
 
-                 <header>
+                 {/* <header>
                     <h1>Книга Рецептов</h1>   
       
                      <Link to="/addrecipeform">
                     <button className="btnRecipes">Добавить Рецепт</button>
                     </Link>
-                </header>
+                </header> */}
+                <Header/>
 
                     <Message/>
                     <Recipes isLoading={this.props.isLoading} dataIngredient={this.props.dataIngredient}/>

@@ -1,7 +1,15 @@
+.recipes-wrapper {
+    padding-top:20px;
+  }
+  
+
 .recipes {
     display: flex;
-    //grid-template-columns:33% 33% 34%;
-    //grid-column-gap: 5px;
-    padding-top:20px;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    padding: 16px;
+    max-width: 960px;
+    margin: 0 auto;
   }
   

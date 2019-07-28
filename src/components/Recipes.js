@@ -25,7 +25,9 @@ class Recipes extends Component {
         if (dataIngredient.length == 0) {
             view = <p>Loading</p>;
         } else {
-            view = this.props.dataIngredient
+            view = (
+                <div className="recipes">
+                {this.props.dataIngredient
                 .map((item, i) => {
                     return (
                         <Recipe key={item.idRecipe} 
@@ -33,10 +35,11 @@ class Recipes extends Component {
                         title={item.titleRecipe} 
                         ingredients={item.ingredients} />
                     );
-                });;
+                })}
+            </div>)
         };
         
-        return (<div className="recipes">{view}</div>);
+        return (<div className="recipes-wrapper">{view}</div>);
 
     }
 
