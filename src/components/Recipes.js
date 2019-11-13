@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Recipe from './Recipe';
+import Loader from './Loader';
 import { connect } from "react-redux";
 import { PropTypes } from 'prop-types';
 import '../scss/index.scss';
@@ -8,39 +9,39 @@ import { fetchDataIngredient } from '../redux/actions';
 
 class Recipes extends Component {
 
+    constructor(props) {
+        super(props)
+    }
 
     componentDidMount() {
         const { dispatch } = this.props;
         dispatch(fetchDataIngredient());
     }
 
-    constructor(props) {
-        super(props)
-        
-    }
     render() {
         const { dataIngredient} = this.props;
         // Empty and Loading States
-        let view;
+        
         if (dataIngredient.length == 0) {
-            view = <p>Loading</p>;
+
+            return <Loader/>;
         } else {
-            view = (
+            return (
+            <div className="recipes-wrapper">
                 <div className="recipes">
-                {this.props.dataIngredient
-                .map((item, i) => {
-                    return (
-                        <Recipe key={item.idRecipe} 
-                        id={item._id.$oid} 
-                        title={item.titleRecipe} 
-                        ingredients={item.ingredients} />
-                    );
-                })}
+                    {this.props.dataIngredient
+                    .map((item, i) => {
+                        return (
+                            <Recipe key={item.idRecipe} 
+                            id={item._id.$oid} 
+                            title={item.titleRecipe} 
+                            ingredients={item.ingredients} />
+                        );
+                    })}
+                </div>
             </div>)
         };
         
-        return (<div className="recipes-wrapper">{view}</div>);
-
     }
 
 }

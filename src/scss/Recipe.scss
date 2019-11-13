@@ -11,6 +11,7 @@
   -webkit-flex-basis: calc(33% - 16px);
   margin: 8px;
   overflow-wrap: break-word;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
 
   @media (max-width: 768px) {
     flex-basis: calc(33% - 16px);
@@ -31,7 +32,7 @@
 
 .recipe-description{
   text-align: center;
-    padding-bottom: 16px;
+  padding-bottom: 16px;
 }
 
 .recipe-image {
@@ -66,7 +67,6 @@
   color: $white;
   background: $primary-red;
   border: 0;
- 
   padding:2px 16px;
   cursor: pointer;
 

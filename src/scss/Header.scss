@@ -4,6 +4,7 @@ header {
     padding: 30px 32px;
     flex: 0 0 50px;
     background-color: #fff;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
 
     h1 {
         margin: auto;
@@ -14,16 +15,15 @@ header {
         position: relative;
         height: 50px;
         width: 200px;
-        border-radius: 3px;
-        border: rgba(0, 0, 0, .3) 0px solid;
+        border-radius: 1px;
+        border: 0 none;
         box-sizing: border-box;
         padding: 10px;
-        background: #90c843;
-        color: #FFF;
-        font-family: 'Open Sans', sans-serif;
-        font-weight: 400;
-        font-size: 16pt;
+        background: #27AE60;
+        color: white;
+        font-weight: bold;
         cursor: pointer;
+      
     }
 
     @media (max-width: 425px) {

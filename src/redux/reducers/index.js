@@ -18,7 +18,7 @@ export const initialState = {
 //Если есть state то используем его иначе - изначальный state
 function reducer(state = initialState, action) {
 
-    console.log(state);
+    console.log(state, "reducer");
     console.log(action.type);
 
     switch (action.type) {
@@ -46,7 +46,9 @@ function reducer(state = initialState, action) {
         case types.GET_DATA_INGREDIENT:
 
             //иммутабельность данных
-console.log(action.payload); console.log(state);
+            console.log(action.payload);
+            console.log(state);
+
             return {
                 ...state,
                 isLoading: false,

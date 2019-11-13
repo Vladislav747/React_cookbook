@@ -7,7 +7,7 @@ import '../scss/index.scss';
 //components
 
 import { PropTypes } from 'prop-types';
-
+import { changeForm} from '../redux/actions';
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 

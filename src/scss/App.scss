@@ -8,23 +8,8 @@ body{
   height: 100%;
 }
 
-
-
 main {
   flex: 1;
-}
-
-.AddRecipeForm{
-  position: relative;
-  left: -910px;
-  transition: all 0.5s linear;
-}
-
-.AddRecipeFormIsOpen{
-  position: relative;
-  left: 0;
-  border: 1px solid #000000;
-  transition: all 0.5s linear;
 }
 
 @keyframes App-logo-spin {
@@ -35,7 +20,6 @@ main {
     transform: rotate(360deg);
   }
 }
-
 
 .modal{
   background: #9fd574;
@@ -52,9 +36,7 @@ main {
   cursor:pointer;
   display: block;
 }
+
 .modal_close {
   display: none;
 }
-
-
-

@@ -7,7 +7,6 @@ import '../scss/index.scss';
 
 class AddRecipeForm extends Component {
 
-  
     onSubmit = event => {
         event.preventDefault();
 
@@ -22,27 +21,25 @@ class AddRecipeForm extends Component {
 
     render() {
         return (
-            <div className="AddRecipeFormContainer" >
-               
-                <form className="formIngredient" onSubmit={this.onSubmit}> 
-                <p>Форма добавления рецепта</p>
-                    <label>
-                        Title of Recipe:
-                    <div>
-                            <input type="text" name="titleRecipe" />
-
+            <div className="AddRecipeFormContainer form">
+                <div className="form__inner">
+                    <form className="formIngredient" onSubmit={this.onSubmit}>
+                        <h2>Форма добавления рецепта</h2>
+                        
+                        <div class="form__row">
+                            <label>Название рецепта</label>
+                            <input type="text" class="inputtext" name="titleRecipe" />
                         </div>
-                    </label>
-                    <label>
-                        Ingredients of Recipe:
-                    <div>
-                            <input type="text" name="ingredients" />
-
+                    
+                       
+                        <div class="form__row">
+                            <label>Ингредиенты рецепта:</label>
+                            <textarea type="text" rows="5" class="inputtext" name="ingredients"></textarea>
                         </div>
-                    </label>
-                    <button className="btnSubmit" type="submit" disabled={this.props.isSubmiting}>Отправить</button>
-                </form>
-
+                        
+                        <button className="btnSubmit" type="submit" disabled={this.props.isSubmiting}>Отправить</button>
+                    </form>
+                </div>  
             </div>
 
         )

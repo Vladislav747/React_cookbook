@@ -48,17 +48,16 @@ const dataError = (err,type) => {
 export const deleteDataIngredient = (id) => dispatch => {
 
     return axios.delete(configs.URI_FOR_DELETE+id+'?apiKey='+configs.MYAPIKEY)
-          .then(() =>{ 
-          
-            dispatch(dataSuccess("deleteDataSuccess"))
-            dispatch(fetchDataIngredient());
-          })
-             .catch(err=> 
-            dispatch(dataError(err, "deleteDataError"))
-            )
+        .then(() =>{ 
+        
+        dispatch(dataSuccess("deleteDataSuccess"))
+        dispatch(fetchDataIngredient());
+        })
+        .catch(err=> 
+            
+        dispatch(dataError(err, "deleteDataError"))
+        )
 }
-
-
 
 const getDataIngredient = (json) => {
     return {

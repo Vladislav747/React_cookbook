@@ -19,5 +19,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 Launch webpack-dev-server on http://localhost:8080/ если вдруг ошибка идти в папку public
 
+https://github.com/reduxjs/redux/blob/master/examples/shopping-cart/src/containers/ProductsContainer.js
+
 
 
