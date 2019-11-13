@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto";
+  font-size: 16px;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,p,h2{
+  font-family: "Roboto";
+}
+
+@import "App.scss";
+@import "Recipe.scss";
+@import "Recipes.scss";
+@import "AddRecipeForm.scss";
+@import "Header.scss";
+@import "Loader.scss";

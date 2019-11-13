@@ -1,27 +1,29 @@
-<<<<<<< HEAD
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-
 module.exports = {
-  module: {
-=======
-module.exports = {
+  entry:"./src/index.js",
+  output: {
+    path: __dirname + '/public',
+    publicPath: '/public/',
+    filename: 'bundle.js'
+  },
+  devtool: '#sourcemap',
    module: {
->>>>>>> development
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
+        test: /.js?$/,
         use: {
-          loader: "babel-loader"
-        }
+          loader:'babel-loader'
+        },
+       
+        exclude: /node_modules/
+      },
+      { 
+        test: /\.css|.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader', {
-          loader: 'postcss-loader',
-          options: {
-            plugins: () => [require('autoprefixer')]
-          }}]
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
+        exclude: /node_modules/,
+        use: ['file-loader?name=[name].[ext]'] // ?name=[name].[ext] is only necessary to preserve the original file name
       },
       {
         test: /\.html$/,

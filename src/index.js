@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import './App.css';
 
+<<<<<<< HEAD
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
@@ -18,3 +15,24 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+=======
+//css
+import './scss/index.scss';
+
+import { BrowserRouter as Router, Route} from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+
+//components
+import App from '../src/containers/App';
+import AddRecipeForm from './components/AddRecipeForm';
+
+ReactDOM.render(
+<Provider store={store}>
+<Router>
+  <Route component={App}/>>
+  <Route path="/addrecipeform" component={AddRecipeForm} />
+  </Router>
+</Provider>, 
+document.getElementById('root'));
+>>>>>>> development_v-2

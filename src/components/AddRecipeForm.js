@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import '../SignupForm.css';
 import { addRecipe, validateEmail } from '../api/api';
 
 
@@ -65,7 +64,6 @@ class AddRecipeForm extends Component {
                         Title of Recipe:
                     <div>
                             <input type="text" name="titleRecipe" />
-                            {/* Ошибоньки */}
                             {handleErrors(this.state.errors, 'titleRecipe')}
 
                         </div>
