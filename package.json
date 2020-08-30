@@ -1,51 +1,22 @@
 {
-  "name": "React_cookbook",
+  "name": "reactdom_refs_new",
   "version": "0.1.0",
   "private": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Vladislav747/React_cookbook.git"
-  },
   "dependencies": {
-<<<<<<< HEAD
-    "babel-core": "^6.26.3",
-    "babel-loader": "8.0.4",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-scripts": "2.1.2"
-=======
     "axios": "^0.18.0",
-    "husky": "^3.0.1",
-    "lint-staged": "^9.2.1",
-    "node-sass": "^4.11.0",
-    "prettier": "^1.18.2",
+    "html-webpack-plugin": "^4.3.0",
+    "node-sass": "^4.14.1",
+    "prop-types": "^15.7.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "react-redux": "^6.0.1",
     "react-scripts": "2.1.1",
-<<<<<<< HEAD
     "uuid": "^3.3.2"
->>>>>>> development
-=======
-    "redux": "^4.0.1",
-    "redux-logger": "^3.0.6",
-    "redux-promise": "^0.6.0",
-    "redux-thunk": "^2.3.0",
-    "uuid": "^3.3.2",
-    "webpack": "^4.38.0"
->>>>>>> development_v-2
   },
   "scripts": {
     "start": "react-scripts start",
     "test": "react-scripts test",
-<<<<<<< HEAD
     "eject": "react-scripts eject",
     "build": "react-scripts build"
-=======
-    "wds": "webpack-dev-server --config ./webpack.config.js --mode development --hot"
->>>>>>> development_v-2
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -57,31 +28,10 @@
     "not op_mini all"
   ],
   "devDependencies": {
-<<<<<<< HEAD
-    "@babel/plugin-proposal-class-properties": "^7.3.0",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0"
-=======
     "autoprefixer": "^9.4.7",
-    "babel": "^6.23.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.5",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
     "css-loader": "^2.1.0",
-    "dev-server": "^0.1.0",
     "jquery": "^3.3.1",
     "postcss-loader": "^3.0.0",
-<<<<<<< HEAD
     "style-loader": "^0.23.1"
->>>>>>> development
-=======
-    "react-hot-loader": "^4.8.0",
-    "react-router-dom": "^5.0.1",
-    "style-loader": "^0.23.1",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.7.2"
->>>>>>> development_v-2
   }
 }

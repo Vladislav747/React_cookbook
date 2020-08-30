@@ -1,8 +1,5 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-<<<<<<< HEAD
-export default class Recipe extends React.Component {
-=======
 import '../scss/index.scss';
 import { connect } from "react-redux";
 import { deleteDataIngredient } from '../redux/actions';
@@ -22,7 +19,6 @@ class Recipe extends React.Component {
     dispatch(deleteDataIngredient(id));
 };
 
->>>>>>> development_v-2
 
     render() {
         const { ingredients, title } = this.props;
