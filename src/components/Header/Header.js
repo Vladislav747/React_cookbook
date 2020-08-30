@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-
-//scss
-import '../scss/index.scss';
-
-//components
-
-import { PropTypes } from 'prop-types';
-import { changeForm} from '../redux/actions';
-
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { PropTypes } from 'prop-types';
 
 
+import '~/scss/index.scss';
+import './Header.scss';
 
+import { changeForm} from '~/redux/actions';
 
 
 class Header extends Component {

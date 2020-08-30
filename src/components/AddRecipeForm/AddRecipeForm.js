@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { addRecipe, validateEmail } from '../api/api';
+
+import { addRecipe} from '~/api/api.js';
+import './AddRecipeForm.scss';
 
 
 const handleErrors = (errors, field) =>

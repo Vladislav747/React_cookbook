@@ -5,10 +5,7 @@ import { connect } from "react-redux";
 import '../scss/index.scss';
 
 //components
-import AddRecipeForm from '../components/AddRecipeForm';
-import Recipes from '../components/Recipes';
-import Message from '../components/Message';
-import Header from '../components/Header';
+import {AddRecipeForm, Header, Recipes, Message} from '~/components';
 
 class App extends Component {
 

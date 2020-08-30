@@ -1,8 +1,10 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import '../scss/index.scss';
 import { connect } from "react-redux";
-import { deleteDataIngredient } from '../redux/actions';
+
+import { deleteDataIngredient } from '~/redux/actions';
+import './Recipe.scss';
+
 
 class Recipe extends React.Component {
 

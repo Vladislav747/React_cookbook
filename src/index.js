@@ -10,7 +10,7 @@ import store from "./redux/store";
 
 //components
 import App from '../src/containers/App';
-import AddRecipeForm from './components/AddRecipeForm';
+import {AddRecipeForm} from './components';
 
 ReactDOM.render(
 <Provider store={store}>

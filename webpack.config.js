@@ -5,6 +5,12 @@ module.exports = {
     publicPath: '/public/',
     filename: 'bundle.js'
   },
+  resolve: {
+   
+    alias: {
+      ["~"]: __dirname + '/src',
+      'react-native': 'react-native-web',
+    },
   devtool: '#sourcemap',
    module: {
     rules: [

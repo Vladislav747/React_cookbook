@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Recipe from './components/Recipe';
-import AddRecipeForm from './components/AddRecipeForm';
+import {AddRecipeForm} from '../components';
 import { getRecipes } from './api/api';
 
 

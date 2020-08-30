@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Recipe from './Recipe';
-import Loader from './Loader';
 import { connect } from "react-redux";
 import { PropTypes } from 'prop-types';
-import '../scss/index.scss';
 
-import { fetchDataIngredient } from '../redux/actions';
+import './Recipes.scss';
+import {Recipe, Loader} from '~/components';
+
+import { fetchDataIngredient } from '~/redux/actions';
 
 class Recipes extends Component {
 
