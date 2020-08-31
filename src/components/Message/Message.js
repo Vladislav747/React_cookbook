@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { PropTypes } from 'prop-types';
 
-import { changeMessage } from '../../redux/actions';
-import { displayMessage } from '../../services';
+import { changeMessage } from 'redux/actions';
+import { displayMessage } from 'services';
 
 class Message extends Component {
 

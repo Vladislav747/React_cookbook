@@ -1,5 +1,5 @@
 //Подтягивание даты с github - используя библиотеку axios
-import { configs } from '../dbConfig/config.js';
+import { configs } from 'dbConfig/config.js';
 import $ from 'jquery';
 import { v4 as uuid } from 'uuid';
 
@@ -34,5 +34,5 @@ export const getRecipes = function () {
 
   return fetch(configs.URI)
   .then((r) => { return r.json() })
-  .catch();
+  .catch((e) => {throw new Error("Ошибка при получении данных" + e)});
 }

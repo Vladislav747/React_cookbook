@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto";
+  font-size: 16px;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,p,h2{
+  font-family: "Roboto";
+}
+
+.container{
+  margin: 20px;
+}
+
+.ui.secondary.menu{
+  cursor: pointer;
+}
+
+.ui.secondary.menu a.item:hover{
+  background: rgba(0,0,0,.05);
+  color: rgba(0,0,0,.95);
+}
