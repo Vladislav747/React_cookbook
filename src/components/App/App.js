@@ -30,7 +30,6 @@ class App extends Component {
             <Container>
                 <Header />
                 <Filter />
-                {/* <Recipes /> */}
                 <Card.Group itemsPerRow={4}>
                     {!isReady ? (
                         <Loader />

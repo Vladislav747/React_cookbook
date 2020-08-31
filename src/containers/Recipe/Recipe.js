@@ -1,17 +1,15 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-// import * as  from 'redux/actions/cart';
+import { addLike, deleteRecipe } from "redux/actions/recipes.js";
 import { Recipe } from "components";
 
-const mapStateToProps = ({ cart }, { id }) => ({
-    addedCount: cart.items.reduce(
-        (count, book) => count + (book.id === id ? 1 : 0),
-        0
-    ),
-});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch) => ({
-    ...bindActionCreators({}, dispatch),
+    ...bindActionCreators(
+        { addLike: addLike, deleteRecipe: deleteRecipe },
+        dispatch
+    ),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Recipe);

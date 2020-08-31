@@ -4,7 +4,7 @@ import "./Loader.css";
 
 class Loader extends Component {
     render() {
-        return <div class="lds-dual-ring"></div>;
+        return <div className="lds-dual-ring"></div>;
     }
 }
 
