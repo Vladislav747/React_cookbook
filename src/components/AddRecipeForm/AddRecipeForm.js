@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { addRecipe} from '~/api/api.js';
-import './AddRecipeForm.scss';
-
+import { addRecipe } from "../../api/api.js";
+import "./AddRecipeForm.scss";
 
 const handleErrors = (errors, field) =>
-
     errors
         .filter(e => e.field === field)
-        .map(e => <p key={e.error} className="error">{e.error} </p>);
+        .map(e => (
+            <p key={e.error} className="error">
+                {e.error}{" "}
+            </p>
+        ));
 
 class AddRecipeForm extends Component {
-
-
     //Изначальный state
     constructor(props) {
         super(props);
@@ -22,19 +22,24 @@ class AddRecipeForm extends Component {
         };
     }
 
-       onSubmit = event => {
+    onSubmit = event => {
         event.preventDefault();
 
-            const data = {
+        const data = {
             titleRecipe: event.target.titleRecipe.value,
             ingredients: event.target.ingredients.value,
-        }
+        };
 
         console.log(data);
         const errors = [];
 
-        if (!data.titleRecipe) errors.push({ field: 'email', error: 'Missing Title of Recipe' });
-        if (!data.ingredients) errors.push({ field: 'password', error: 'Missing Ingredients of Recipe' });
+        if (!data.titleRecipe)
+            errors.push({ field: "email", error: "Missing Title of Recipe" });
+        if (!data.ingredients)
+            errors.push({
+                field: "password",
+                error: "Missing Ingredients of Recipe",
+            });
 
         console.log(errors, "Массив ошибок до отправки на сервер");
 
@@ -42,7 +47,6 @@ class AddRecipeForm extends Component {
         if (errors.length) return this.setState({ errors });
         this.setState({ isSubmiting: true });
         addRecipe(data).then(
-            
             r => {
                 //При отправке запроса очищаем массив ошибок
                 this.setState({ errors: [], isSubmiting: false });
@@ -51,11 +55,9 @@ class AddRecipeForm extends Component {
             e => {
                 console.log(e.data);
                 console.log("Сообщение не отправлено");
-                
             }
         );
-
-    }
+    };
 
     render() {
         return (
@@ -64,26 +66,26 @@ class AddRecipeForm extends Component {
                 <form className="form" onSubmit={this.onSubmit}>
                     <label>
                         Title of Recipe:
-                    <div>
+                        <div>
                             <input type="text" name="titleRecipe" />
-                            {handleErrors(this.state.errors, 'titleRecipe')}
-
+                            {handleErrors(this.state.errors, "titleRecipe")}
                         </div>
                     </label>
                     <label>
                         Ingredients of Recipe:
-                    <div>
+                        <div>
                             <input type="text" name="ingredients" />
 
-                            {handleErrors(this.state.errors, 'ingredients')}
-
+                            {handleErrors(this.state.errors, "ingredients")}
                         </div>
                     </label>
-                    <button type="submit" disabled={this.state.isSubmiting}>Отправить</button>
+                    <button type="submit" disabled={this.state.isSubmiting}>
+                        Отправить
+                    </button>
                 </form>
             </div>
-        )
-    };
+        );
+    }
 }
 
 export default AddRecipeForm;

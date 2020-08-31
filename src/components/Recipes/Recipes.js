@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { PropTypes } from 'prop-types';
+import { PropTypes } from "prop-types";
 
-import './Recipes.scss';
-import {Recipe, Loader} from '~/components';
+import "./Recipes.scss";
+import { Recipe, Loader } from "components";
 
-import { fetchDataIngredient } from '~/redux/actions';
+import { fetchDataIngredient } from "redux/actions";
 
 class Recipes extends Component {
-
     constructor(props) {
-        super(props)
+        super(props);
     }
 
     componentDidMount() {
@@ -19,45 +18,43 @@ class Recipes extends Component {
     }
 
     render() {
-        const { dataIngredient} = this.props;
+        const { dataIngredient } = this.props;
         // Empty and Loading States
-        
-        if (dataIngredient.length == 0) {
 
-            return <Loader/>;
+        if (dataIngredient.length == 0) {
+            return <Loader />;
         } else {
             return (
-            <div className="recipes-wrapper">
-                <div className="recipes">
-                    {this.props.dataIngredient
-                    .map((item, i) => {
-                        return (
-                            <Recipe key={item.idRecipe} 
-                            id={item._id.$oid} 
-                            title={item.titleRecipe} 
-                            ingredients={item.ingredients} />
-                        );
-                    })}
+                <div className="recipes-wrapper">
+                    <div className="recipes">
+                        {this.props.dataIngredient.map((item, i) => {
+                            return (
+                                <Recipe
+                                    key={item.idRecipe}
+                                    id={item._id.$oid}
+                                    title={item.titleRecipe}
+                                    ingredients={item.ingredients}
+                                />
+                            );
+                        })}
+                    </div>
                 </div>
-            </div>)
-        };
-        
+            );
+        }
     }
-
 }
 
 Recipes.propTypes = {
-
     dataIngredient: PropTypes.array,
-    isLoading: PropTypes.bool
-}
+    isLoading: PropTypes.bool,
+};
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     console.log(state, "Recipes");
     return {
         dataIngredient: state.dataIngredient,
-        isLoading: state.isLoading
+        isLoading: state.isLoading,
     };
-}
+};
 
 export default connect(mapStateToProps)(Recipes);
