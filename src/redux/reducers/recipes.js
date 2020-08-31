@@ -21,13 +21,13 @@ export default (state = initialState, action) => {
                 ...state,
                 items: state.items.filter((o) => o.id !== action.payload),
             };
+        //TODO доделаnь
         case "ADD_LIKE":
-            console.log("HHHiii");
             return {
                 ...state,
-                items: state.items.map((o) => {
-                    if (o.id === action.payload) {
-                        o.likes = 1231;
+                items: state.items.map((reduxItem) => {
+                    if (reduxItem.id === action.payload) {
+                        reduxItem.likes = reduxItem.likes + 1;
                     }
                 }),
             };

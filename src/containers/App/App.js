@@ -18,12 +18,12 @@ const sortBy = (recipes, filterBy) => {
     }
 };
 
-const filterRecipes = (recipes, searchQuery) => console.log(recipes);
-recipes.filter(
-    (o) =>
-        o.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||
-        o.author.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0
-);
+const filterRecipes = (recipes, searchQuery) =>
+    recipes.filter(
+        (o) =>
+            o.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||
+            o.author.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0
+    );
 
 const searchRecipes = (recipes, filterBy, searchQuery) => {
     return sortBy(filterRecipes(recipes, searchQuery), filterBy);
