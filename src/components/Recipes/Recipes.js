@@ -2,16 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 
-import "./Recipes.scss";
 import { Recipe, Loader } from "components";
 
-import { fetchDataIngredient } from "redux/actions";
+import { fetchDataIngredient } from "redux/actions/detailRecipe";
 
 class Recipes extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         const { dispatch } = this.props;
         dispatch(fetchDataIngredient());
@@ -21,7 +16,7 @@ class Recipes extends Component {
         const { dataIngredient } = this.props;
         // Empty and Loading States
 
-        if (dataIngredient.length == 0) {
+        if (dataIngredient.length === 0) {
             return <Loader />;
         } else {
             return (
@@ -49,7 +44,7 @@ Recipes.propTypes = {
     isLoading: PropTypes.bool,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     console.log(state, "Recipes");
     return {
         dataIngredient: state.dataIngredient,

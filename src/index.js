@@ -1,18 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 
 //css
-import 'semantic-ui-css/semantic.min.css';
-import store from 'redux/store';
+import "semantic-ui-css/semantic.min.css";
+import store from "redux/store";
 
 //components
-import {App} from "containers";
+import { App } from "containers";
 
 ReactDOM.render(
     <Provider store={store}>
-      <App />
+        <App />
     </Provider>,
     document.getElementById("root")
 );

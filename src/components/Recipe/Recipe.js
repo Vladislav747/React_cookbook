@@ -1,97 +1,86 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
+import { Card, Button, Image, Icon, Label } from "semantic-ui-react";
 
-import { deleteDataIngredient } from "redux/actions";
-import "./Recipe.scss";
+import { deleteDataIngredient, addLike } from "redux/actions/detailRecipe";
+import "./Recipe.css";
 
 class Recipe extends React.Component {
     constructor(props) {
         super(props);
         this.deleteRecipe = this.deleteRecipe.bind(this);
+        this.addLike = this.addLike.bind(this);
     }
 
     //Удалить рецепт
     deleteRecipe = () => {
-        const { dispatch } = this.props;
-        const { id } = this.props;
+        const { dispatch, id } = this.props;
         dispatch(deleteDataIngredient(id));
     };
 
-    render() {
-        const { ingredients, title } = this.props;
-        return (
-            <div className="recipe">
-                <div className="recipe-image">
-                    <img
-                        src="https://res.cloudinary.com/sivadass/image/upload/v1493620046/dummy-products/cucumber.jpg"
-                        alt="Cucumber - 1 Kg"
-                    ></img>
-                </div>
+    //Удалить рецепт
+    addLike = () => {
+        const { dispatch, id } = this.props;
+        dispatch(addLike(id));
+    };
 
-                <div className="recipe-name">
-                    <h2>{title}</h2>
-                </div>
-                <div className="recipe-description">
-                    <p>
-                        <span> Ingredients | {ingredients}</span>
-                    </p>
-                </div>
-                <div className="recipe-action">
-                    <button
+    render() {
+        const { ingredients, title, author, image, likes } = this.props;
+        return (
+            <Card>
+                <Image src={image} wrapped ui={false} alt="Фото рецепта" />
+                <Card.Content>
+                    <Card.Header>
+                        <h2>{title}</h2>
+                    </Card.Header>
+                    <Card.Meta>
+                        <span className="date">{author}</span>
+                    </Card.Meta>
+                    <Card.Description>
+                        <h5>Ингредиенты</h5>
+                        <ul>
+                            {ingredients.map((el) => (
+                                <li>{el}</li>
+                            ))}
+                        </ul>
+                    </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                    <Button
                         className="btnDeleteRecipe"
-                        type="button"
                         onClick={this.deleteRecipe}
+                        color="red"
                     >
                         УДАЛИТЬ РЕЦЕПТ
-                    </button>
-                </div>
-            </div>
+                    </Button>
+                    <Button
+                        as="div"
+                        className="like-block"
+                        labelPosition="right"
+                    >
+                        <Button color="orange">
+                            <Icon name="heart" />
+                            Like
+                        </Button>
+                        <Label as="a" basic color="orange" pointing="left">
+                            {likes}
+                        </Label>
+                    </Button>
+                </Card.Content>
+            </Card>
         );
     }
 }
 
 Recipe.propTypes = {
-    ingredients: PropTypes.string,
+    ingredients: PropTypes.array,
     title: (props, propName) =>
         typeof props[propName] !== "string"
             ? new Error("A title must be a string")
             : props[propName].length > 40
-            ? new Error(`title is over 20 characters`)
+            ? new Error(`title is over 40 characters`)
             : null,
 };
-
-
-// import React from 'react';
-// import { Card, Image, Icon, Button } from 'semantic-ui-react';
-
-// const BookCard = book => {
-//   const { title, author, price, image, addToCart, addedCount } = book;
-//   return (
-//     <Card>
-//       <div className="card-image">
-//         <Image src={image} />
-//       </div>
-//       <Card.Content>
-//         <Card.Header>{title}</Card.Header>
-//         <Card.Meta>
-//           <span className="date">{author}</span>
-//         </Card.Meta>
-//       </Card.Content>
-//       <Card.Content extra>
-//         <a>
-//           <Icon name="rub" />
-//           {price}
-//         </a>
-//       </Card.Content>
-//       <Button onClick={addToCart.bind(this, book)}>
-//         Добавить в корзину {addedCount > 0 && `(${addedCount})`}
-//       </Button>
-//     </Card>
-//   );
-// };
-
-// export default BookCard;
-
 
 export default connect()(Recipe);

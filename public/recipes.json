@@ -1,154 +1,67 @@
 [
   {
     "id": 0,
-    "title": "Происхождение",
-    "author": "Дэн Браун",
-    "image": "https://cv9.litres.ru/pub/c/elektronnaya-kniga/cover_415/27624091-den-braun-proishozhdenie-27624091.jpg",
-    "price": 710,
-    "rating": 3
+    "title": "Детское яблочное пюре",
+    "author": "Иванова Ольга Сергеевна",
+    "image": "https://yummybook.ru/upload/images/recipe/item/9738/image_large_39865f3c29eab214097779178_97779178.jpg",
+    "ingredients": ["Яблоко 2-3 шт", "Вода 250 мл"],
+    "likes": 710
   },
   {
     "id": 1,
-    "title": "1984",
+    "title": "Домашние молочные сосиски",
     "author": "Джордж Оруэлл",
-    "image": "https://cv0.litres.ru/sbc/09233908_cover_185-elektronnaya-kniga--.jpg",
-    "price": 415,
-    "rating": 5
+    "image": "https://yummybook.ru/upload/images/recipe/item/9736/image_large_56405f3b9a6c4920597741738_97741738.jpg",
+    "ingredients": ["Куриное филе - 2 шт" , "Молоко - 250 мл", "Свекла (вареная) - 30 г", "Растительное масло - 20 мл", "Соль", "смесь перцев - по вкусу"],
+    "likes": 415
   },
   {
     "id": 2,
-    "title": "Девушка в тумане",
+    "title": "Детское морковное пюре",
     "author": "Донато Карризи",
-    "image": "https://cv2.litres.ru/sbc/31635724_cover_185-elektronnaya-kniga-donato-karrizi-devushka-v-tumane.jpg",
-    "price": 464,
-    "rating": 4
+    "image": "https://yummybook.ru/upload/images/recipe/item/9737/image_large_45715f3c224a77ed297776688_97776688.jpg",
+    "ingredients": ["Морковка 250 г", "Вода 200 мл"],
+    "likes": 464
   },
   {
     "id": 3,
-    "title": "Империя должна умереть",
+    "title": "Гуляш с чипетке",
     "author": "Михаил Зыгарь",
-    "image": "https://cv0.litres.ru/sbc/30804904_cover_185-elektronnaya-kniga-mihail-zygar-imperiya-dolzhna-umeret.jpg",
-    "price": 741,
-    "rating": 3
+    "image": "https://yummybook.ru/upload/images/recipe/item/3821/image_large_69225f2d6a376ca06_96811855.jpg",
+    "ingredients": ["1 болгарский перец", "4 картофелины", "Свинина 500 г"],
+    "likes": 741
   },
   {
     "id": 4,
-    "title": "Земное притяжение",
+    "title": "Гнёзда из кабачков",
     "author": "Татьяна Устинова",
-    "image": "https://cv9.litres.ru/sbc/30087292_cover_185-elektronnaya-kniga-tatyana-ustinova-zemnoe-prityazhenie.jpg",
-    "price": 317,
-    "rating": 1
+    "image": "https://yummybook.ru/upload/images/recipe/item/9703/image_large_88355f2d664d42cf7_96810865.jpg",
+    "ingredients": ["300 г. кабачков", "30 г. твёрдого сыра", "1 яйцо"],
+    "likes": 317
   },
-  {
-    "id": 5,
-    "title": "Зулейха открывает глаза",
-    "author": "Гузель Яхина",
-    "image": "https://cv5.litres.ru/sbc/17411250_cover_185-elektronnaya-kniga-guzel-yahina-zuleyha-otkryvaet-glaza-2.jpg",
-    "price": 254,
-    "rating": 0
-  },
-  {
-    "id": 6,
-    "title": "Очаровательный кишечник. Как самый могущественный орган управляет нами",
-    "author": "Джулия Эндерс",
-    "image": "https://cv7.litres.ru/pub/c/elektronnaya-kniga/cover_120/12178377-dzhuliya-enders-ocharovatelnyy-kishechnik-kak-samyy-moguschestvennyy-organ-upravlyaet-nami-12178377.jpg",
-    "price": 573,
-    "rating": 4
-  },
-  {
-    "id": 7,
-    "title": "iPhuck 10",
-    "author": "Виктор Пелевин",
-    "image": "https://cv7.litres.ru/sbc/31221870_cover_185-elektronnaya-kniga-viktor-pelevin-iphuck-10-25564903.jpg",
-    "price": 246,
-    "rating": 0
-  },
-  {
-    "id": 8,
-    "title": "7 навыков высокоэффективных людей: Мощные...",
-    "author": "Стивен Кови",
-    "image": "https://cv8.litres.ru/pub/c/elektronnaya-kniga/cover_415/4239285--.jpg",
-    "price": 347,
-    "rating": 5
-  },
-  {
-    "id": 9,
-    "title": "Девушка во льду",
-    "author": "Роберт Брындза",
-    "image": "https://cv3.litres.ru/pub/c/elektronnaya-kniga/cover_415/27351732-robert-bryndza-12646976-devushka-vo-ldu.jpg",
-    "price": 882,
-    "rating": 2
-  },
-  {
-    "id": 10,
-    "title": "Магия утра. Как первый час дня определяет ваш успех",
-    "author": "Хэл Элрод",
-    "image": "https://cv1.litres.ru/pub/c/elektronnaya-kniga/cover_415/19063017-hel-elrod-magiya-utra.jpg",
-    "price": 829,
-    "rating": 1
-  },
-  {
-    "id": 11,
-    "title": "Азиатская европеизация. История Российского государства. Царь Петр...",
-    "author": "Борис Акунин",
-    "image": "https://cv3.litres.ru/sbc/31629439_cover_185-elektronnaya-kniga-boris-akunin-aziatskaya-evropeizaciya-istoriya-rossiyskogo-gosudarstva-car-petr-alekseevich.jpg",
-    "price": 389,
-    "rating": 2
-  },
-  {
-    "id": 12,
-    "title": "Ведьмак (сборник)",
-    "author": "Анджей Сапковский",
-    "image": "https://cv6.litres.ru/pub/c/elektronnaya-kniga/cover_415/6375365-andzhey-sapkovskiy-vedmak.jpg",
-    "price": 424,
-    "rating": 3
-  },
-  {
-    "id": 13,
-    "title": "Атлант расправил плечи",
-    "author": "Айн Рэнд",
-    "image": "https://cv7.litres.ru/pub/c/elektronnaya-kniga/cover_415/4236675-ayn-rend-atlant-raspravil-plechi.jpg",
-    "price": 157,
-    "rating": 2
-  },
+  
   {
     "id": 14,
-    "title": "Цена вопроса. Том 1",
+    "title": "Салат из овощей с пикантной заправкой «Шехерезада»",
     "author": "Александра Маринина",
-    "image": "https://cv6.litres.ru/sbc/33285466_cover_185-elektronnaya-kniga-aleksandra-marinina-cena-voprosa-tom-1-22638660.jpg",
-    "price": 664,
-    "rating": 0
+    "image": "https://yummybook.ru/upload/images/recipe/item/9730/image_large_31245f3a8d58ca6eb97673010_97673011.jpg",
+    "ingredients": ["Перец болгарский – 2 шт. (300 г)", "Баклажан –1 шт. (150 г)", "Лук 500 г"],
+    "likes": 664
   },
   {
     "id": 15,
-    "title": "Исчезнувшая",
+    "title": "Суфле из кабачков",
     "author": "Гиллиан Флинн",
-    "image": "https://cv2.litres.ru/sbc/11029722_cover_185-elektronnaya-kniga-gillian-flinn-ischeznuvshaya.jpg",
-    "price": 476,
-    "rating": 4
+    "image": "https://yummybook.ru/upload/images/recipe/item/9693/image_large_56865f1b08c2ce68c_95607257.jpg",
+    "ingredients": ["500 г. кабачка", "3 яйца", "50 г. сыра", "соль", "перец"],
+    "likes": 476
   },
   {
     "id": 17,
-    "title": "Метро 2035",
+    "title": "Витаминный салат из капусты",
     "author": "Дмитрий Глуховский",
-    "image": "https://cv9.litres.ru/sbc/13698392_cover_185-elektronnaya-kniga-dmitriy-gluhovskiy-metro-2035.jpg",
-    "price": 837,
-    "rating": 4
-  },
-  {
-    "id": 18,
-    "title": "Снеговик",
-    "author": "Ю Несбё",
-    "image": "https://cv6.litres.ru/pub/c/elektronnaya-kniga/cover_415/4578362-u-nesbe-snegovik-4578362.jpg",
-    "price": 796,
-    "rating": 5
-  },
-  {
-    "id": 19,
-    "title": "Как тренировать память. Не думайте о памяти – лучше используйте ее на все сто!",
-    "author": "Джонатан Хэнкок",
-    "image": "https://cv1.litres.ru/sbc/14195715_cover_185-elektronnaya-kniga-dzhonatan-henkok-kak-trenirovat-pamyat-ne-dumayte-o-pamyati-luchshe-ispolzuyte-ee-na-vse-sto.jpg",
-    "price": 399,
-    "rating": 5
+    "image": "https://yummybook.ru/upload/images/recipe/item/9630/image_large_53215ef2101e5c61f92922490_92922490.jpg",
+    "ingredients": ["300 гр белокочанной капусты", "1 морковь", "1 репчатый лук (или салатный)", "300 гр консервированного горошка", "1 пучок укропа", "соль по вкусу"],
+    "likes": 837
   }
 ]

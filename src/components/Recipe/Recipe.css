@@ -1,11 +1,10 @@
-$primary-red: #FF0000;
-$white: #fff;
+
 
 .recipe {
   width: 200px;
   min-height: 250px;
   margin: 40px;
-  background: $white;
+  background: #fff;
   padding: 15px;
   border-radius: 2px;
   flex-basis: calc(33% - 16px);
@@ -13,17 +12,6 @@ $white: #fff;
   margin: 8px;
   overflow-wrap: break-word;
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-
-  @media (max-width: 768px) {
-    flex-basis: calc(33% - 16px);
-    -webkit-flex-basis: calc(33% - 16px);
-    margin: 8px;
-  }
-  @media (max-width: 425px) {
-    flex-basis: calc(50% - 16px);
-    -webkit-flex-basis: calc(50% - 8px);
-    margin: 4px;
-  }
 }
 
 .recipe-name{
@@ -53,32 +41,13 @@ $white: #fff;
 .recipe-image img:hover {
   transform: scale(1.1);
 }
+
 .recipe-action{
   justify-content: center;
   display: flex;
   padding:16px;
 }
-.recipe-action button {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-  font-size: 13pt;
-  height: 36px;
-  border-radius: 2px;
-  text-align: center;
-  color: $white;
-  background: $primary-red;
-  border: 0;
-  padding:2px 16px;
-  cursor: pointer;
 
-  &:hover {
-    background: lighten($primary-red, 10%);
-  }
-
-  &:focus {
-    outline: none;
-  }
-  @media (max-width: 425px) {
-   height: 54px;
-  }
+.like-block{
+  margin: 20px 0 !important;
 }

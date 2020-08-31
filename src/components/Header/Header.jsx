@@ -1,16 +1,13 @@
 import React from "react";
-import { Menu, Popup, List, Button, Image } from "semantic-ui-react";
-
-import "./Header.scss";
+import { Menu } from "semantic-ui-react";
 
 const Header = () => (
     <Menu>
-      <Menu.Item name="browse"><h1>Книга рецептов</h1></Menu.Item>
-  
-      <Menu.Menu position="right">
-          Полезные рецпеты
-      </Menu.Menu>
+        <Menu.Item name="browse">
+            <h1>Книга рецептов</h1>
+        </Menu.Item>
+        <Menu.Item position="right">Полезные рецпеты</Menu.Item>
     </Menu>
-  );
+);
 
 export default Header;

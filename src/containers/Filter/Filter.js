@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as filterActions from "redux/actions/filter";
+import { setFilter, setSearchQuery } from "redux/actions/filter";
 import { Filter } from "components";
 
 const mapStateToProps = ({ filter }) => ({
@@ -8,11 +8,14 @@ const mapStateToProps = ({ filter }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    ...bindActionCreators(filterActions.setFilter, dispatch),
+    ...bindActionCreators(
+        { setFilter: setFilter, setSearchQuery: setSearchQuery },
+        dispatch
+    ),
 });
 
 console.log(mapStateToProps, "mapStateToProps");
 console.log(mapDispatchToProps, "mapDispatchToProps");
-console.log(filterActions, "filterActions");
+console.log(setFilter, "filterActions");
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

@@ -7,17 +7,12 @@ import "css/index.css";
 import "./App.css";
 
 //components
-import { Header } from "components";
+import { Header, Loader } from "components";
 import { Recipe, Filter } from "containers";
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentWillMount() {
         const { setRecipes } = this.props;
-        console.log("checkmount");
         axios
             .get("/recipes.json")
             .then(({ data }) => {
@@ -37,11 +32,13 @@ class App extends Component {
                 <Filter />
                 {/* <Recipes /> */}
                 <Card.Group itemsPerRow={4}>
-                    {!isReady
-                        ? "Загрузка..."
-                        : recipes.map((book, i) => (
-                              <Recipe key={i} {...book} />
-                          ))}
+                    {!isReady ? (
+                        <Loader />
+                    ) : (
+                        recipes.map((recipe, i) => (
+                            <Recipe key={i} {...recipe} />
+                        ))
+                    )}
                 </Card.Group>
             </Container>
         );

@@ -1,22 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import './Loader.scss';
+import "./Loader.css";
 
 class Loader extends Component {
-
     render() {
-
-        return (
-
-        <div class="showbox">
-            <div class="loader">
-                <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
-                </svg>
-            </div>
-          </div>
-
-        );
+        return <div class="lds-dual-ring"></div>;
     }
 }
 
