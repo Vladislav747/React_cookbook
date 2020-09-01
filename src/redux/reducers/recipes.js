@@ -3,6 +3,16 @@ const initialState = {
     items: null,
 };
 
+//Добавлять лайки на рецептах
+function addLikes(id, state) {
+    for (var i = 0; i < state.items.length; i++) {
+        if (id === state.items[i].id) {
+            state.items[i].likes = state.items[i].likes + 1;
+        }
+    }
+    return state.items;
+}
+
 export default (state = initialState, action) => {
     switch (action.type) {
         case "SET_RECIPES":
@@ -21,15 +31,10 @@ export default (state = initialState, action) => {
                 ...state,
                 items: state.items.filter((o) => o.id !== action.payload),
             };
-        //TODO доделаnь
         case "ADD_LIKE":
             return {
                 ...state,
-                items: state.items.map((reduxItem) => {
-                    if (reduxItem.id === action.payload) {
-                        reduxItem.likes = reduxItem.likes + 1;
-                    }
-                }),
+                items: addLikes(action.payload, state),
             };
         default:
             return state;
