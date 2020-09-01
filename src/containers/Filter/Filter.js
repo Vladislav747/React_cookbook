@@ -14,8 +14,4 @@ const mapDispatchToProps = (dispatch) => ({
     ),
 });
 
-console.log(mapStateToProps, "mapStateToProps");
-console.log(mapDispatchToProps, "mapDispatchToProps");
-console.log(setFilter, "filterActions");
-
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
