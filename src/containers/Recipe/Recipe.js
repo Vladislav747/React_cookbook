@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { addLike, deleteRecipe } from "redux/actions/recipes.js";
-import { Recipe } from "components";
+import { addLike, deleteRecipe } from "../../redux/actions/recipes.js";
+import { Recipe } from "../../components";
 
 const mapStateToProps = () => ({});
 

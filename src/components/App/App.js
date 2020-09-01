@@ -3,12 +3,12 @@ import axios from "axios";
 import { Card, Container } from "semantic-ui-react";
 
 //scss
-import "css/index.css";
+import "../../css/index.css";
 import "./App.css";
 
 //components
-import { Header, Loader } from "components";
-import { Recipe, Filter } from "containers";
+import { Header, Loader } from "../../components";
+import { Recipe, Filter } from "../../containers";
 
 class App extends Component {
     componentWillMount() {

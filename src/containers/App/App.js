@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { setRecipes } from "redux/actions/recipes";
-import { App } from "components";
+import { setRecipes } from "../../redux/actions/recipes";
+import { App } from "../../components";
 import orderBy from "lodash/orderBy";
 
 const sortBy = (recipes, filterBy) => {
