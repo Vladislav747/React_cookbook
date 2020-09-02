@@ -1,13 +1,20 @@
-// Button.test.js
-
-import Recipe from "../components/App/App";
+// Recipe.test.js
 import React from "react";
-import ReactDOM from "react-dom";
-
 import { create, update } from "react-test-renderer";
 
+import recipes from "../../public/recipes.json";
+import { addLike, deleteRecipe } from "../redux/actions/recipes.js";
+import Recipe from "../components/Recipe/Recipe";
+
 it("renders without crashing", () => {
-    let tree = create(<Recipe />);
+    var recipesData = JSON.parse(recipes);
+    let tree = create(
+        <Recipe
+            ingredients={recipesData}
+            addLike={addLike}
+            deleteRecipe={deleteRecipe}
+        />
+    );
 
     expect(tree.toJSON()).toMatchSnapshot();
 });

@@ -1,4 +1,5 @@
 const express = require("express");
+const chalk = require("chalk");
 const path = require("path");
 const port = process.env.PORT || 8080;
 
@@ -8,6 +9,8 @@ const app = express();
 //здесь наше приложение отдаёт статику
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, "build")));
+
+console.log(chalk.cyan("Starting the production server...\n"));
 
 //простой тест сервера
 app.get("/ping", function (req, res) {
