@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div
+  className="ui card"
+  href={undefined}
+  onClick={[Function]}
+>
+  <div
+    className="image"
+    href={undefined}
+  >
+    <img
+      alt="Фото рецепта"
+      src="https://yummybook.ru/upload/images/recipe/item/9738/image_large_39865f3c29eab214097779178_97779178.jpg"
+    />
+  </div>
+  <div
+    className="content"
+  >
+    <div
+      className="header"
+    >
+      <h2>
+        Детское яблочное пюре
+      </h2>
+    </div>
+    <div
+      className="meta"
+    >
+      <span
+        className="date"
+      >
+        Иванова Ольга Сергеевна
+      </span>
+    </div>
+    <div
+      className="description"
+    >
+      <h5>
+        Ингредиенты
+      </h5>
+      <ul>
+        <li>
+          Яблоко 2-3 шт
+        </li>
+        <li>
+          Вода 250 мл
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="extra content"
+  >
+    <button
+      className="ui red button btnDeleteRecipe"
+      disabled={undefined}
+      onClick={[Function]}
+      role="button"
+      tabIndex={undefined}
+    >
+      УДАЛИТЬ РЕЦЕПТ
+    </button>
+    <div
+      className="ui right labeled button like-block"
+      disabled={undefined}
+      onClick={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <button
+        className="ui orange button"
+        disabled={undefined}
+        onClick={[Function]}
+        role="button"
+        tabIndex={undefined}
+      >
+        <i
+          aria-hidden="true"
+          className="heart icon"
+        />
+        Like
+      </button>
+      <a
+        className="ui orange left pointing basic label"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;
