@@ -2,7 +2,6 @@ import React from "react";
 import { PropTypes } from "prop-types";
 import { Card, Button, Image, Icon, Label } from "semantic-ui-react";
 
-// import { deleteRecipe, addLike } from "redux/actions/detailRecipe";
 import "./Recipe.css";
 
 const Recipe = ({
@@ -41,7 +40,7 @@ const Recipe = ({
             >
                 УДАЛИТЬ РЕЦЕПТ
             </Button>
-            <Button as="div" className="like-block" labelPosition="right">
+            <div className="like-block" labelPosition="right">
                 <Button color="orange" onClick={addLike.bind(this, id)}>
                     <Icon name="heart" />
                     Like
@@ -49,7 +48,7 @@ const Recipe = ({
                 <Label as="a" basic color="orange" pointing="left">
                     {likes}
                 </Label>
-            </Button>
+            </div>
         </Card.Content>
     </Card>
 );
@@ -57,10 +56,8 @@ const Recipe = ({
 Recipe.propTypes = {
     ingredients: PropTypes.array,
     title: (props, propName) =>
-        typeof props[propName] !== "string"
-            ? new Error("A title must be a string")
-            : props[propName].length > 40
-            ? new Error(`title is over 40 characters`)
+        typeof props[propName] !== "string" && props[propName].length > 50
+            ? new Error("A title must be a string and over 50 characters")
             : null,
 };
 

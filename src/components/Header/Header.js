@@ -14,7 +14,10 @@ const Header = () => (
                 Добавить рецепт
             </Button>
         </Menu.Item>
-        <Menu.Item position="right">Полезные рецпеты</Menu.Item>
+
+        <Menu.Item position="right">
+            <h1>Полезные рецепты</h1>
+        </Menu.Item>
     </Menu>
 );
 
