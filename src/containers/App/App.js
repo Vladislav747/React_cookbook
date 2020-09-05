@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { setRecipes } from "../../redux/actions/recipes";
+import { setRecipesAction } from "../../redux/actions/recipes";
 import { App } from "../../components";
 import orderBy from "lodash/orderBy";
 
@@ -37,7 +37,7 @@ const mapStateToProps = ({ recipes, filter }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    ...bindActionCreators({ setRecipes: setRecipes }, dispatch),
+    ...bindActionCreators({ setRecipes: setRecipesAction }, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

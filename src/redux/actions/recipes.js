@@ -1,16 +1,16 @@
-export const setRecipes = (recipes) => ({
+export const setRecipesAction = (recipes) => ({
     type: "SET_RECIPES",
     payload: recipes,
 });
 
-export const deleteRecipe = (id) => {
+export const deleteRecipeAction = (id) => {
     return {
         type: "DELETE_RECIPE",
         payload: id,
     };
 };
 
-export const addLike = (id) => {
+export const addLikeAction = (id) => {
     return {
         type: "ADD_LIKE",
         payload: id,

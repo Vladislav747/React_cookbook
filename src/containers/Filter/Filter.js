@@ -1,6 +1,9 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { setFilter, setSearchQuery } from "../../redux/actions/filter";
+import {
+    setFilterAction,
+    setSearchQueryAction,
+} from "../../redux/actions/filter";
 import { Filter } from "../../components";
 
 const mapStateToProps = ({ filter }) => ({
@@ -9,7 +12,7 @@ const mapStateToProps = ({ filter }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     ...bindActionCreators(
-        { setFilter: setFilter, setSearchQuery: setSearchQuery },
+        { setFilter: setFilterAction, setSearchQuery: setSearchQueryAction },
         dispatch
     ),
 });
